@@ -1,0 +1,11 @@
+{
+    "name": "Customer",
+    "alias": "customer",
+    "description": "The Customer module is responsible for managing Customers and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Customer\\Providers\\CustomerServiceProvider"
+    ]
+}

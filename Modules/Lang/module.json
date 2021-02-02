@@ -1,0 +1,11 @@
+{
+    "name": "Lang",
+    "alias": "lang",
+    "description": "The Lang module is responsible for managing Langs and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Lang\\Providers\\LangServiceProvider"
+    ]
+}

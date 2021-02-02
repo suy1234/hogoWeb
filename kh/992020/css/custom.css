@@ -1,0 +1,17 @@
+.navbar-inner-left{
+	margin-bottom: 15px;
+}
+.page-content .container .title h1{
+	margin-bottom: 10px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: left;
+	position: relative;
+	border-bottom: 1px solid #5ecfef;
+	padding-bottom: 10px;
+}
+.page-content .container .title h2{
+	font-size: var(--font-size);
+}

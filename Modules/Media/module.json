@@ -1,0 +1,11 @@
+{
+    "name": "Media",
+    "alias": "media",
+    "description": "The Media module is responsible for managing Medias and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Media\\Providers\\MediaServiceProvider"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Widget",
+    "alias": "widget",
+    "description": "The Widget module is responsible for managing Widgets and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Widget\\Providers\\WidgetServiceProvider"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Advisory",
+    "alias": "Advisory",
+    "description": "The Advisory module is responsible for managing Advisorys and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Advisory\\Providers\\AdvisoryServiceProvider"
+    ]
+}

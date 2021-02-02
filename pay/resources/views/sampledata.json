@@ -1,0 +1,13 @@
+{
+    "id": 0, 
+    "method": "user_find/1", 
+    "params": [
+        [
+            "admin"
+        ], 
+        {
+            "raw": true, 
+            "version": "2.228"
+        }
+    ]
+}

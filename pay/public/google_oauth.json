@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "im-group",
+  "private_key_id": "6b6d1bfd7d66e46a2bc1135d90b3de4e2c2e6eac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYz0I7lNDhGY43\nYoYryZeCB46oICIPFQjo3KncHMcVn9f4g/PBJP3Kub1ckDi4Hy10ZHOSsJOsrpX/\nVLg6EYxi5y3WwYr2S3aVycFvDQ2UK5v89Al+G0Stn1/AIUkkvuQ26/rJy60/5xDn\n2NtHDhzzSCj7ijxxitP7gyLyo3w0U4BKxJeEb8D8X/5JSEdiKZ6Mmt1wPbKB6bI2\nD/Bw3WcVdxUBtDXAt/clvtitrCOmc4RoRsSEUCfs31evl5kLF/Ef/Rr1zP2NTMHd\nHS/8eQGX1LCmB0bvwtzUwGECiif6BzzT3HjOmvr28ncd+y5WhYIQbONWQwjLj23n\nkUc2gpszAgMBAAECggEAB+GIlPIT48ghoZGfQdrfyYECRoGBwC1hjED1Mbj6O49G\n4DZN+AQkYrQ5o/B8PGK/QWV84G/i7eEDM2v3JGeLSf6KSq0osZMqxoblRwjxTlcB\ncIZVhv95B0tU8N/GmfKOapa5FHdAtC8CnDJ+/KcprxJlqrNycpiqXiphPwpXeYtQ\ndvZNs8A9xVOuatLHuUrYD3uc0+26ynlRG13WeNej0B/hRPYYeVM+5XQ2fOZKsAq3\nHPmDzlEN3bfxc3tPgnZMqyiVktGDjjsNLYYE3iY6J3Izaq1HiFrhsvlvi3mWzWuv\n6TQrRuIbRGfmsuUBFHUj89u8uZI3iLXIzG2hQc5iQQKBgQDWS/8V57kZw4Tf2/Lu\ny1AMcXXoemaVvpOBF+9UpOW74VZqCww8lao6SPy/k3SllX6Tk9me6SknZRIbeggD\nqmKizCcTr5Pg84OTMiSH+WdvIgkNySKa0ZIGK+F1ChIRD8XNzq2/0VWY1MGg+YJ2\ntGuc3VVF7OKa8evgBfdvnTYICQKBgQC2jAsi7viVOpBOtfPnRvowEv0+6r11NiZb\nLVrwuaFGo6O+SgSR5zZRQlEZUjR+ftMSyN3J0odUPXCXvwvfd+Yl7G6qAiBka9d3\nVZkLERLCzokSSP8qU+8+bxI74fbbTqY30HYvNwgF2AdmI5XNo3KhkG1O2KSC1edN\nfIgkl8/AWwKBgQCM0d/MSzutnHfiiyy2ktAFfUGYBWcIG/XeLRZOrxVwQwGAKcZe\nwZLdPj0ovwM2FGjbHZsx+9HZW2dsuuItVnf+tt0u6H/qoNrjjV3IJLI9q0X70yJ0\nTicA+zDqsjVxFMZNGfW/SRZQme6rk4qR6rmUmTWB/8phO3xe+EzDAbIR0QKBgDSP\ngi1ezWh6Yk6niUDQaP0qmoxhHof/PXAHUSX67Prf5yfFPCeegT9Ibv1xc/fwIGpK\nN8ICwkB5KFApDAweA8BroTmGPzlq67FKjjRniBVbTpBbQE05uasqY/+mAmQG80ki\n1sSlfcPg/dBk8p8xLrJiWXbYXhXl7SGcd77Bj2n9AoGAciYU/41QT47brP3BS9Mw\nxvVEYajn2evXhDgBARPSo7GPMFTXucIZRsoIRBWjwh80d2faVZFtZUleiQYD19ts\nP5itMHriyfW/2YPUholfvIMP2xXFsJONwlmiIec4bAB/KVED7l97oKDeQrC74fzr\ntEr2H48vgygqiaTZtUiFOfc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pay-imgroup@im-group.iam.gserviceaccount.com",
+  "client_id": "108756829840359157742",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pay-imgroup%40im-group.iam.gserviceaccount.com"
+}

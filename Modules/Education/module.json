@@ -1,0 +1,11 @@
+{
+    "name": "Education",
+    "alias": "education",
+    "description": "The Education module is responsible for managing Educations and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Education\\Providers\\EducationServiceProvider"
+    ]
+}

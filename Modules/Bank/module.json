@@ -1,0 +1,11 @@
+{
+    "name": "Bank",
+    "alias": "Bank",
+    "description": "The Bank module is responsible for managing Banks and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Bank\\Providers\\BankServiceProvider"
+    ]
+}

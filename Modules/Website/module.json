@@ -1,0 +1,11 @@
+{
+    "name": "Website",
+    "alias": "Website",
+    "description": "The Website module is responsible for managing Websites and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Website\\Providers\\WebsiteServiceProvider"
+    ]
+}

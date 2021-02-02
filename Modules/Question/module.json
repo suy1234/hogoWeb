@@ -1,0 +1,11 @@
+{
+    "name": "Question",
+    "alias": "question",
+    "description": "The question module is responsible for managing questions and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Question\\Providers\\QuestionServiceProvider"
+    ]
+}

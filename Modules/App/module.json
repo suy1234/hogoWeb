@@ -1,0 +1,13 @@
+{
+    "name": "App",
+    "alias": "app",
+    "description": "The ERP App Module.",
+    "active": 1,
+    "order": 10,
+    "providers": [
+        "Maatwebsite\\Sidebar\\SidebarServiceProvider",
+        "Modules\\App\\Providers\\RouteServiceProvider",
+        "Modules\\App\\Providers\\AppServiceProvider",
+        "Modules\\App\\Providers\\SidebarServiceProvider"
+    ]
+}

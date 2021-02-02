@@ -1,0 +1,208 @@
+#!/bin/bash
+
+function docker_run {
+    docker run -i -d --name webbuilder -p 80:80  -v `pwd`:/data/webbuilder/wb_core imgroup/webbuilder bash;
+    sleep 3
+    docker exec -d webbuilder bash -c "adduser $USER && chown -R $USER .";
+    #docker exec webbuilder  /bin/sh -c "printf ' static.wbcore.local' >> /etc/hosts";
+    echo
+}
+
+function mysql_run {
+    docker run -d --name mysqldb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:5.7;
+    echo
+    echo "MySQL Host: ";
+    docker inspect --format '{{ .NetworkSettings.IPAddress }}' mysqldb;
+}
+
+function redis_run {
+    docker run --name redisdb -d redis redis-server;
+    echo
+    echo "Redis Host: ";
+    docker inspect --format '{{ .NetworkSettings.IPAddress }}' redisdb;
+}
+
+if [ $# -eq 0 ]
+    then
+        echo -e "No arguments supplied! Supported arguments:
+        * init
+        * start
+        * starts
+        * stop
+        * reload
+        * build [dev|prod] {theme-name}
+        * git checkout origin {branch}
+        * git checkout [file|folder]
+        * git status
+        * git add [file|folder]
+        * git commit
+        * git push {branch}
+        * git fetch
+        * cli
+        * logs
+        * ssh
+        * update
+        * npm install {package-name}
+        * npm run [dev|development|prod|production]
+        * test [unit]
+        * grunt
+        * grunt css
+        * grunt js
+        * composer install
+        * composer update
+        * nginx restart
+        * xdebug [enable|disable]
+        * deploy [box]
+        * release [box]
+        "
+else
+    if [ "$1" == "init" ]; then
+        # Prerequisites
+        which docker > /dev/null 2>&1 || { echo "Docker is required. Aborting." >&2; exit 1; }
+
+        echo "Creating container...";
+        if docker ps -a | grep -q 'webbuilder'; then
+            docker rm -f webbuilder;
+        fi
+        docker_run
+
+        file=".env"
+        if [ -e "$file" ]; then
+            docker exec -it webbuilder bash -c "php artisan key:generate"
+            echo
+        else
+            echo "Creating .env file"
+            docker exec -it webbuilder bash -c "cp .env.example .env"
+            echo
+        fi
+
+        echo "Setting permission..."
+        docker exec -it webbuilder bash -c "chmod -R 777 storage/"
+        docker exec -it webbuilder bash -c "chmod -R 777 bootstrap/cache"
+        docker exec -it webbuilder bash -c "chmod -R 777 uploads"
+        echo
+
+        echo "Composer installing..."
+        docker exec -it webbuilder bash -c "composer update"
+        echo
+
+        if docker ps -a | grep -q 'mysqldb'; then
+            docker start mysqldb;
+            echo "MySQL Host: ";
+            docker inspect --format '{{ .NetworkSettings.IPAddress }}' mysqldb;
+            echo
+        else
+            mysql_run
+        fi
+
+        if docker ps -a | grep -q 'redisdb'; then
+            docker rm -f redisdb;
+        fi
+        redis_run
+
+        echo
+        echo "DONE";
+
+        echo
+        echo "Open a browser and access 'http://wbcore.local' and you are able to see the magic!";
+    elif [ "$1" == "start" -o "$1" == "reload" -o "$1" == "restart" ]; then
+        echo "Starting container...";
+        if docker ps -a | grep -q 'webbuilder'; then
+            docker rm -f webbuilder;
+        fi
+        docker_run
+        if docker ps -a | grep -q 'mysqldb'; then
+            docker start mysqldb;
+            echo "MySQL Host: ";
+            docker inspect --format '{{ .NetworkSettings.IPAddress }}' mysqldb;
+            echo
+        fi
+
+        if docker ps -a | grep -q 'redisdb'; then
+            docker rm -f redisdb;
+        fi
+        redis_run
+
+        echo
+        echo "DONE";
+    elif [ "$1" == "starts" ]; then
+        echo "Starting container...";
+        echo
+        if docker ps -a | grep -q 'webbuilder'; then
+            docker rm -f webbuilder;
+        fi
+        docker_run
+        if docker ps -a | grep -q 'mysqldb'; then
+            docker start mysqldb;
+            echo "MySQL Host: ";
+            docker inspect --format '{{ .NetworkSettings.IPAddress }}' mysqldb;
+            echo
+        fi
+
+        if docker ps -a | grep -q 'redisdb'; then
+            docker rm -f redisdb;
+        fi
+        redis_run
+        echo
+        echo "Access to container..."
+        bash dk ssh;
+
+    elif [ "$1" == "stop" ]; then
+        echo "Stopping container...";
+        if docker ps -a | grep -q 'webbuilder'; then
+            docker rm -f webbuilder;
+        fi
+
+        if docker ps -a | grep -q 'mysqldb'; then
+            docker stop mysqldb;
+        fi
+
+        if docker ps -a | grep -q 'redisdb'; then
+            docker rm -f redisdb;
+        fi
+
+        echo
+        echo "DONE";
+        
+    elif [ "$1" == "composer" ]; then
+        docker exec -it webbuilder /src/scripts/docker/commands/composer.sh $2;
+
+    elif [ "$1" == "ssh" ]; then
+        docker exec -it webbuilder bash;
+
+    elif [ "$1" == "build" ]; then
+        docker exec -it webbuilder bash -c "cd data/assetsbuilder && ./build $2 $3";
+
+    elif [ "$1" == "git" ]; then
+        if [ "$2" == "branch" ]; then
+            if [ "$3" == "-b" ]; then
+                docker exec -it webbuilder bash -c "git branch -b $4 master";
+            else
+                docker exec -it webbuilder bash -c "git branch";
+            fi
+        elif [ "$2" == "status" ]; then
+            docker exec -it webbuilder bash -c "git status";
+        elif [ "$2" == "fetch" ]; then
+            docker exec -it webbuilder bash -c "git fetch";
+        elif [ "$2" == "add" ]; then
+            docker exec -it webbuilder bash -c "git add $3";
+        elif [ "$2" == "commit" ]; then
+            docker exec -it webbuilder bash -c 'git commit';
+        elif [ "$2" == "push" ]; then
+            branch="$(git name-rev --name-only HEAD)";
+            docker exec -it webbuilder bash -c 'git push origin $branch';
+        elif [ "$2" == "pull" ]; then
+        	if [ "$3" == "origin" ]; then
+                docker exec -it webbuilder bash -c 'git pull origin $4';
+            else
+                echo "Missing argument 'origin'";
+            fi
+        elif [ "$2" == "checkout" ]; then
+            docker exec -it webbuilder bash -c "git checkout $3";
+        else
+            echo "Argument is not supported"
+        fi 
+    else
+        echo "Argument is not supported"
+    fi
+fi

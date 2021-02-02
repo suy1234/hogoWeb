@@ -1,0 +1,11 @@
+{
+    "name": "Service",
+    "alias": "service",
+    "description": "The Service module is responsible for managing Services and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Service\\Providers\\ServiceServiceProvider"
+    ]
+}

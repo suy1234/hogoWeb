@@ -1,0 +1,2 @@
+<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/style.css') }}?v={{ rand() }}" media="all">
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/custom.css') }}" media="all"> --}}

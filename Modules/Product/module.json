@@ -1,0 +1,11 @@
+{
+    "name": "Product",
+    "alias": "product",
+    "description": "The Product module is responsible for managing Products and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Product\\Providers\\ProductServiceProvider"
+    ]
+}
