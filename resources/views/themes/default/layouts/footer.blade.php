@@ -1,5 +1,5 @@
 <div id="footer" style="background-color: {{ $layout_default['footer']['config']['background']['color'] }};background-image: url('{{ $layout_default['footer']['config']['background']['image'] }}');">
-	<div class="row">
+	<div class="row" style="margin: 0">
 		@foreach($layout_default['footer']['widgets'] as $layout)
 			<article class="{{ $layout['class'] }}">
 				@if(count($layout['widgets']))

@@ -39,13 +39,6 @@
 				inventory_quantity : '',
 				warehouses_quantity_set : '',
 				warehouses_quantity_warning : '',
-				weight : '',
-				width : '',
-				length : '',
-				height : '',
-				order : '',
-				view_count : '',
-				status : '',
 				published_at : '',
 				created_by : '',
 				seo: {

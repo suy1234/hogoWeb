@@ -1,390 +1,395 @@
 @push('style')
 <style type="text/css">
-	.page-full-logo{
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-		height: 100vh;
+	.page-exam-b2 h1{
+		color: #da8829;
 	}
-	.page-full-container{
-		overflow-x: hidden;
-	}
-	.page-full-logo .section-header{
-		padding-top: 20px;
-		border: none;
-	}
-	.page-full-logo .section-menu{
-		color: #FFF;
-		padding: 5px;
-		display: inline-block;
-	}
-	.page-full-logo .section-menu i{
-		font-size: 25px;
-	}
-	.page-full-logo .slogren{
-		background: #0d090999;
+	.page-exam-b2 .content-exam{
 		padding: 15px;
-		text-align: center;
+		border: 3px dashed #da8829;
+		color: #212121;
+		border-radius: 20px;
 	}
-	.page-full-logo .slogren a, .page-full-logo .slogren h1 {
-		color: #FFF;
-		font-size: 30px;
+	.page-exam-b2 .content-exam.mt{
+		margin-top: 15px
 	}
-	.page-full-logo .slogren h2{
-		font-size: 20px;
+	.page-exam-b2 .content-exam h2{
+		font-size: 16px;
+		padding: 0;
+		margin: 15px 0;
+		color: #da8829;
+		font-weight: 700;
 	}
-	.page-full-logo .section-body .section-services{
-		margin-top: 2%;
-	}
-	.page-full-logo .section-body .section-services .item{
-		width: 100%;
-		height: 30vh;
-		padding: 15px 0;
-	}
-	.page-full-logo .section-body .section-services .item.item-center{
-		height: 60vh;
-	}
-	.page-full-logo .section-body .section-services .item .item-content{
-		border: 1px solid #FFF;
-		height: 100%;
-	}
-	.page-full-logo .section-body .section-services .item img{
-		height: 100%;
-		object-fit: contain;
-	}
-
-
-	.page-map{
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-color: #f0f0f0;
-	}
-	.page-map .page-map-container{
-		padding: 30px 0;
-	}
-	.page-map .page-map-container .img-map{
-		height: 70vh;
-		margin: auto;
-		text-align: center;
+	.page-exam-b2 .content-exam .custom-control {
+		position: relative;
 		display: block;
+		min-height: 1.5rem;
+		padding-left: 0rem;
 	}
-	.page-map .page-map-container .page-map-address h2{
-		padding: 10px 0;
-		text-transform: uppercase;
-		border-bottom: 1px solid #CCC;
-		margin: 0;
-		font-size: 20px;
+	.page-exam-b2 .content-exam .custom-control-input{
+		margin:0;
+		margin-bottom: 1px;
 	}
-	@media only screen and (max-width: 768px) {
-		.page-full-logo{
-			height: auto;
-		}
-		.page-map .page-map-container .page-map-address{
-			text-align: center;
-		}
-		.page-map .page-map-container .page-map-address ul{
-			padding: 0;
-		}
-		.page-map .page-map-container .page-map-address ul li{
-			list-style: none;
-		}
+	.page-exam-b2 .content-exam .custom-control-input:focus{
+		outline: 0;
 	}
-	/*Menu*/
-	.page-logo{
-		position: absolute;
-		width: 100%;
-	}
-	.page-logo + div{
-		padding-top: 40px;
-	}
-	.page-logo .section-header{
-		padding: 20px 0;
-		border: none;
-	}
-	.page-logo .section-menu{
-		color: #FFF;
-		padding: 5px;
-		display: inline-block;
-	}
-	.page-logo .section-menu i{
-		font-size: 25px;
-	}
-
-	.main-menu{
-		top: 0;
-		right: -333px;
-		position: fixed;
-		overflow-x: hidden;
-		overflow-y: auto;
-		width: 333px;
-		height: 100%;
-		z-index: 1000;
-		background: #fff;
-		-webkit-overflow-scrolling: touch;
-		-webkit-transition: all 0.5s;
-		-moz-transition: all 0.5s;
-		transition: all 0.5s;
-	}
-	.main-menu .btn-close-menu{
-		width: 30px;
-		height: 30px;
-		position: absolute;
-		right: 10px;
-		top: 10px;
-		text-align: center;
-		line-height: 30px;
-		color: #004042;	
-		cursor: pointer;
-	}
-
-	.main-menu .btn-close-menu:hover{
-		background: #fff;
-	}
-	body.open-menu{
-		overflow:hidden;
-	}
-	body.open-menu .main-menu{
-		right: 0px;
-	}
-	.main-menu .list-menu{
-		list-style: none;
-		background: #fff;
-		right: 0;
-		font-size: 12px;
-		padding: 15px 2px 15px 20px;
+	.page-exam-b2 .content-exam .custom-control-label {
 		margin-bottom: 0;
+		font-weight: normal;
+		vertical-align: super;
+		margin-left: 10px;
 	}
-	.main-menu .list-menu.active{
+	.page-exam-b2 .content-exam ul{
+		margin-left: 20px;
+	}
+	.page-exam-b2 .content-exam ul li{
+		margin: 5px 0;
+	}
+	.page-exam-b2 .exam-item{
+		padding: 15px;
+		border: 3px dashed #da8829;
+		color: #212121;
+		border-radius: 20px;
+		margin-bottom: 15px;
+	}
+	.page-exam-b2 .exam-item h2{
+		font-size: 16px;
+		padding: 0;
+		margin: 15px 0;
+		color: #da8829;
+		font-weight: 700;
+		text-align: center;
+	}
+	.page-exam-b2 .exam-item .item{
+		margin-bottom: 15px;
+	}
+	.page-exam-b2 .exam-item .item a{
 		display: block;
-	}
-	.main-menu .list-menu>li{
-		white-space: nowrap;
-		margin-bottom: 15px;
-	}
-	.main-menu .list-menu>li:first-child{
-		margin-bottom: 20px;
-	}
-	.main-menu .list-menu>li>a{
-		color: #fff;
-		display: block;
-		color: #77c147;
-		text-transform: uppercase;
-		border-bottom: 1px solid #77c147;
-		margin-bottom: 15px;
-	}
-	.main-menu .list-menu>li>a.no-line{
-		border-bottom: none;
-	}
-	.main-menu .list-menu>li> ul.sub-menu{
-		list-style: none;
-		margin-left: 12px;
-		margin-right: 25px;
-		margin-bottom: 10px;
-	}
-	.main-menu .list-menu>li> ul.sub-menu li{
-		margin-bottom: 15px;
-	}
-	.main-menu .list-menu>li> ul.sub-menu a{
-		color: #004042;	
-		display: inline-block;
+		background: #da8829;
+		color: #FFF;
+		border: 1px solid #da8829;
+		text-align: center;
+		padding: 7.5px 0;
+		font-weight: 500;
 		text-transform: uppercase;
 	}
-	.main-menu .list-menu>li> ul.sub-menu a:hover{
-		color: #77c147;
+	.page-exam-b2 .exam-item .item a:hover{
+		background: #FFF;
+		color: #da8829;
+		text-decoration: none;
 	}
-	.main-menu .list-menu>li> ul.sub-social{
-		list-style: none;	
-		margin-bottom: 10px;	
+	.page-exam-b2 .exam-item .item a.active{
+		background: none;
+		color: #da8829;
+		text-decoration: none;
 	}
-	.main-menu .list-menu>li> ul.sub-social li{
-		display: inline-block;
-		margin-right: 10px;
+	.page-exam-b2 .exam-item .item a.checked{
+		background: #459042;
+		border-color: #459042;
+		text-decoration: none;	
 	}
-	ul.sub-social img{
-		width: 35px;
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-radius: 5px;
+	.page-exam-b2 .content-exam .btn-exam{
+		background: none;
+		border: 1px solid #459042;
+	}
+	.page-exam-b2 .content-exam .exam-hr{
+		margin-top: 18px;
+		margin-bottom: 18px;
+		border-top: 1px solid #459042;
+	}
+	.page-exam-b2 .confirm-exam{
+		border-color: #459042;
+		margin-bottom: 15px;
+	}
+	.page-exam-b2 .content-exam .exam-time{
+		font-size: 18px;
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+	}
+	.page-exam-b2 .content-note-exam{
+		padding: 10px;
+		background: #212121;
+		color: #CCC;
+		margin-top: 30px;
+	}
+	.page-exam-b2 .result-exam{
+		border-color: #459042;
+		margin-bottom: 15px;
 	}
 </style>
 @endpush
+<div class="section page-exam-b2">
+	<form>
+		<div class="container">
+			<h1 class="text-center text-uppercase">Đề thi đào tạo lái xe hàng b2</h1>
+			<div class="row">
+				<div class="col-sm-8 col-md-8 col-xs-12">
+					<div class="exam-item">
+						<div>
+							<h2 style="text-align: center;"><strong class="text-success">CẤU TRÚC 18 ĐỀ THI THỬ B2 600 CÂU TRỰC TUYẾN</strong></h2>
+							<div>
+								<p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Trong 18 đề thi sát hạch lái xe B2 mỗi đề gồm 35 câu hỏi, mỗi câu hỏi chỉ có duy nhất 1 đáp án đúng.&nbsp;</span><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Cấu trúc 600 câu hỏi sát hạch lái xe B2 có đáp án áp dụng vào mỗi đề thi thi thử lý thuyết B2 này sẽ gồm: 1 câu hỏi phần khái niệm; 7 câu hỏi về quy tắc giao thông; 1 câu hỏi nghiệp vụ vận tải; 1 câu về tốc độ khoảng cách; 1 câu hỏi về văn hóa &amp; đạo đức người lái xe; 2 câu hỏi về kỹ thuật lái xe; 1 câu hỏi về cấu tạo sữa chữa; 10 câu hỏi biển báo; 10 câu hỏi sa hình kèm theo 1 câu hỏi điểm liệt (tình huống gây mất an toàn giao thông nghiêm trọng).</span></p><ul style="text-align: justify;"><li><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Số câu cần đạt:</strong> <span style="color: #ff0000;"><strong>32/35 câu trở lên là đậu.</strong></span></span></li><li><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Thời gian làm bài:</strong> <strong><span style="color: #ff0000;">22 phút.</span></strong></span></li><li><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Đặc biệt:</strong> <span style="color: #ff0000;">KHÔNG LÀM SAI CÂU ĐIỂM LIỆT (câu hỏi *)</span></span></li></ul><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><i><strong style="color: blue;">Lưu ý:</strong> Bộ đề thi lý thuyết lái xe B2 này được xây dựng dựa trên tài liệu 600 câu hỏi thi GPLX do Bộ GTVT ban hành. </i></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Nếu học thuộc hết 18 đề thi thử bằng lái xe B2 này đồng nghĩa với việc bạn sẽ nắm chắc việc thi đậu lý thuyết 100% mà không cần phải lo lắng.</span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Bộ đề thi thử 600 câu hỏi lý thuyết B2 online này đang trong quá trình hoàn thiện nên sẽ có lỗi phát sinh, vì thế nếu có bất cứ đóng góp nào. Các bạn đừng ngần ngại để lại comment bên dưới nhé!</span></p>
+								<a class="btn btn btn-primary" data-toggle="collapse" href="#huong-dan" role="button" aria-expanded="false" aria-controls="collapseExample">CÁCH SỬ DỤNG BỘ ĐỀ</a>
+
+								<div class="collapse" id="huong-dan">
+									<div class="card card-body">
+										<p style="font-size: 14px; text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Học viên sẽ cần ôn tập và học thuộc đầy đủ 18 bộ đề tổng hợp đầy đủ 600 câu hỏi lý thuyết ô tô do chúng tôi biên soạn. Các bộ đề thi thử lý thuyết 600 câu trên sẽ là <strong>cố định </strong>để các bạn có thể làm quen và học thuộc dễ dàng hơn. Khác hẳn với bộ đề tự luyện của Tổng Cục Đường Bộ Việt Nam theo dạng ngẫu nhiên và thay đổi liên tục!</span></p><p style="text-align: justify;"><span style="color: #0000ff; font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Các bước thực hiện để bắt đầu vào việc thi thử lý thuyết bằng B2:</strong></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Bước 1: các bạn chọn bộ đề để làm, tốt nhất theo quy trình học từ đề 1 -&gt; đề 2 -&gt;... đề 18.</strong></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Bước 2: sau khi nhấn vào để sẽ hiện ra giao diện như sau:</strong></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><img class="alignnone wp-image-209" src="https://thibanglaixeonline.com/wp-content/uploads/2020/08/cau-truc-bo-de.png" alt="" width="326" height="158"></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Bước 3: Cách chọn đáp án. Click vào để chọn đáp án bạn nghĩ là đúng!</strong></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><img class="alignnone wp-image-208" src="https://thibanglaixeonline.com/wp-content/uploads/2020/08/cach-chon-dap-an.png" alt="" width="326" height="110"></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Bước 4: Cách nộp bài để kiểm tra kết quả đề thi mà mình vừa làm được. Nhấn vào nút&nbsp; sẽ hiện "Bạn chắc chắn muốn nộp bài?", chọn OK.</strong></span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><img class="alignnone wp-image-207" src="https://thibanglaixeonline.com/wp-content/uploads/2020/08/nop-bai.png" alt="" width="326" height="63"></span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Bước 5: Khi nộp bài xong, bộ đề sẽ hiển thị kết quả như hình dưới. Trường hợp học viên làm đúng 32/35 câu và không làm sai câu liệt sẽ trả về kết quả là: "ĐẠT", nếu làm sai câu liệt sẽ trả về kết quả là :"KHÔNG ĐẠT - Sai câu điểm liệt".</strong></span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;"><img class="alignnone wp-image-206" src="https://thibanglaixeonline.com/wp-content/uploads/2020/08/tra-loi.png" alt="" width="326" height="172"></span></p><p style="text-align: justify;"><span style="color: #ff0000; font-family: arial, helvetica, sans-serif; font-size: 12pt;">Trường hợp học viên làm đúng 34 câu khác, nhưng chỉ làm SAI CÂU ĐIỂM LIỆT coi như là sai hoàn toàn!</span></p><p style="text-align: justify;"><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Tốt nhất mỗi đề, các bạn phải làm đúng 35/35 câu và theo trình tự từ <strong>đề 1 -&gt; đề 18</strong>.</span></p><p style="text-align: justify;"><span style="color: #0000ff; font-family: arial, helvetica, sans-serif; font-size: 12pt;"><strong>Chúc tất cả học viên đạt được điểm tuyệt đối trong kỳ thi sát hạch GPLX B2 trong thời gian sắp tới.</strong></span></p><p style="text-align: justify;">&nbsp;</p>
+									</div>
+								</div>
+								<p style="text-align: justify;">&nbsp;</p>
+								<div style="margin-bottom:10px">
+									<strong style="font-size: 12pt; color: blue;">
+										Chọn đề thi:
+									</strong>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-4 item">
+								<a href="" class="active">
+									Đề số 1
+								</a>
+							</div>
+							<div class="col-xs-4 item">
+								<a href="" class="checked">
+									Đề số 2
+								</a>
+							</div>
+							<div class="col-xs-4 item">
+								<a href="">
+									Đề số 3
+								</a>
+							</div>
+							@for($i =4; $i <= 18 ;$i++)
+							<div class="col-xs-4 item">
+								<a href="">
+									Đề số {{ $i }}
+								</a>
+							</div>
+							@endfor
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-xs-12">
+					<div class="exam-item">
+						<h2>De thi thu</h2>
+						<div class="row">
+							<div class="col-xs-4 item">
+								<a href="" class="active">
+									Đề số 1
+								</a>
+							</div>
+							<div class="col-xs-4 item">
+								<a href="" class="checked">
+									Đề số 2
+								</a>
+							</div>
+							<div class="col-xs-4 item">
+								<a href="">
+									Đề số 3
+								</a>
+							</div>
+							@for($i =4; $i <= 18 ;$i++)
+							<div class="col-xs-4 item">
+								<a href="">
+									Đề số {{ $i }}
+								</a>
+							</div>
+							@endfor
+						</div>
+					</div>
+					<div class="exam-item">
+						<p style="text-align:justify">18 Bộ Đề thi thử lý thuyết B2 trực tuyến xây dựng theo 600 câu hỏi sát hạch lái xe ô tô do Tổng Cục Đường Bộ VN ban hành từ này 01/08/2020. </p><p style="text-align:justify">Hỗ trợ học viên thi bằng lái xe B2 online cấp tốc dưới dạng đề luyện thi thử với tính chính xác tuyệt đối. Cải tiến và ứng dụng rộng rãi đa nền tảng, phù hợp với tất cả các thiết bị máy tính, laptop hay điện thoại thông minh.</p>
+						<p style="text-align:justify">Việc ôn tập giấy phép lái xe dựa trên phầm mềm thi thử bộ đề 600 câu hỏi trắc nghiệm sát hạch ô tô B2 trở nên dễ dàng do việc tổng hợp đầy đủ các bộ đề thi sát hạch GPLX Ô tô dành cho hạng B2 từng xuất hiện trong các kỳ thi do Sở GTVT tổ chức.</p>
+						<p style="text-align:justify">Phần mềm thi thử bằng lái xe B2 600 câu sẽ giúp học viên có thể sử dụng ở mọi nơi, mọi thời điểm vô cùng dễ dàng và thuận lợi! </p>
+						<p style="text-align:justify">Bộ đề thi lý thuyết sát hạch lái xe B2 600 câu hỏi này là hoàn toàn miễn phí, áp dụng dành cho học viên học lái xe B2 trên toàn quốc.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-note-exam text-center">
+			Đề thi đạt chuẩn của sở giao thông vận tải được trung tâm HOGO kiểm chứng
+		</div>
+	</form>
+</div>
+
+<div class="section page-exam-b2">
+	<form>
+		<div class="container">
+			<h1 class="text-center text-uppercase">Đề thi đào tạo lái xe hàng b2 đề số 10</h1>
+			<div class="row">
+				<div class="col-sm-8 col-md-8 col-xs-12">
+					<div class="content-exam result-exam mt">
+						<h2 class="text-center">KẾT QUẢ LÀM BÀI</h2>
+						<p class="text-number">Đề số: <strong class="text-success text-number-exam">01</strong></p>				
+						<div>
+							Số câu đúng: <span style="color: red; font-weight: bold;">0</span>
+						</div>
+						<div>
+							Số câu sai: <span style="color: red; font-weight: bold;">35</span>
+						</div>
+						<div>
+							Kết quả: <span style="color: red; font-weight: bold;">KHÔNG ĐẠT - Sai câu điểm liệt</span>
+						</div>
+						<div>
+							Đáp án sai: <span style="color: red;">Tô màu đỏ</span>
+						</div>
+						<div>
+							Đáp án đúng: <span style="color: blue;">Tô màu xanh</span>
+						</div>
+						<div>Kiểm tra lại đáp án đúng bên dưới!</div>
+					</div>
+					<div class="content-exam">
+						<h2>Câu 1: skjdsjfjs kjsdfkjsd ksjdf ksdjf ksjdfk sdjf  ksdjf ksdjf</h2>
+						<p>skdjasdkasdk askd askdas kdaskdj kasd as</p>
+						<hr />
+						<ul class="list-unstyled">
+							<li>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customCheck1">
+									<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+								</div>
+							</li>
+							<li>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customCheck1">
+									<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+								</div>
+							</li>
+							<li>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customCheck1">
+									<label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="content-exam confirm-exam mt">
+
+						<div class="text-center">
+							<button class="btn btn-exam btn-exam-back pull-left">
+								Câu trước
+							</button>
+							<button class="btn btn-exam btn-exam-next pull-right">
+								Câu tiếp theo
+							</button>
+						</div>
+						<hr class="exam-hr" />
+						<div class="clearfix"></div>
+						<div class="text-center content-exam-check" style="margin-top: 10px;">
+							<p class="text-center text-danger exam-time">
+								Thời gian còn lại: <span id="countdown" class="timer">22:00</span>
+							</p>
+							<hr>
+							<button class="btn btn-success">
+								NỘP BÀI THI
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-xs-12">
+					<div class="exam-item">
+						<div class="row">
+							<div class="col-xs-4 item">
+								<a href="" class="active">
+									Câu 1
+								</a>
+							</div>
+							<div class="col-xs-4 item">
+								<a href="" class="checked">
+									Câu 2
+								</a>
+							</div>
+							<div class="col-xs-4 item">
+								<a href="">
+									Câu 3
+								</a>
+							</div>
+							@for($i =4; $i <= 30 ;$i++)
+							<div class="col-xs-4 item">
+								<a href="">
+									Câu {{ $i }}
+								</a>
+							</div>
+							@endfor
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-note-exam text-center">
+			Đề thi đạt chuẩn của sở giao thông vận tải được trung tâm HOGO kiểm chứng
+		</div>
+	</form>
+</div>
 @php
-$page_map = [
+
+$data = [
 	[
-		'value' => '',
-		'widget' => 'image',
-		'label' => 'Ảnh',
-	],[
-		'value' => '',
-		'widget' => 'image',
-		'label' => 'Ảnh',
-	],[
-		'value' => '',
-		'widget' => 'image',
-		'label' => 'Ảnh',
-	],[
-		'value' => '',
-		'widget' => 'image',
-		'label' => 'Ảnh',
-	],[
-		'value' => '',
-		'widget' => 'image',
-		'label' => 'Ảnh',
-	],[
-		'value' => '',
-		'widget' => 'title',
-		'label' => 'Tiêu đề 1',
-	],[
-		'value' => '',
-		'widget' => 'title',
-		'label' => 'Tiêu đề 2',
+		'table' => 'categorys',
+		'type' => 'question'
 	]
+	[
+		[
+			'value' => '',
+			'widget' => 'title',
+			'label' => 'Tiêu đề',
+		],[
+			'value' => '',
+			'widget' => 'content',
+			'label' => 'Nội dung',
+		],[
+			'label' => 'Chọn danh mục',
+			'widget' => 'category',
+			'value' => '',
+			'table' => 'categorys',
+			'type' => 'question'
+		],
+	],[
+		[
+			'value' => '',
+			'widget' => 'title',
+			'label' => 'Tiêu đề',
+		],[
+			'label' => 'Chọn danh mục',
+			'widget' => 'category',
+			'value' => '',
+		],[
+			'value' => '',
+			'widget' => 'content',
+			'label' => 'Nội dung',
+			'table' => 'categorys',
+			'type' => 'question'
+		],
+	]
+	
+
 ];
 @endphp
-<div class="section page-logo">
-	<div class="page-container">
-		<div class="container">
-			<div class="section-header">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<a href="" title="logo">
-							<img src="/public/admin/app/images/logo_light.png" class="img-responsive">
-						</a>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-						<a href="javascript:void(0)" onclick="menuShow()" class="section-menu" title="">
-							<i class="fa fa-bars"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="section page-full-logo" style="background-image: url('/public/demo/each.png');">
-	<div class="page-full-container">
-		<div class="container">
-			{{-- <div class="section-header">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<a href="" title="logo">
-							<img src="/public/admin/app/images/logo_light.png" class="img-responsive">
-						</a>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-						<a href="javascript:void(0)" onclick="menuShow()" class="section-menu" title="">
-							<i class="fa fa-bars"></i>
-						</a>
-					</div>
-				</div>
-			</div> --}}
-			<div class="section-body">
-				<div class="section-services">
-					<div class="row">
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<article class="item">
-								<div class="item-content"></div>
-							</article>
-							<article class="item">
-								<div class="item-content"></div>
-							</article>
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<article class="item item-center">
-								<div class="item-content">
-									<a href="" title="logo">
-										<img src="/public/admin/app/images/logo_light.png" class="img-responsive">
-									</a>
-								</div>
-							</article>
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<article class="item">
-								<div class="item-content"></div>
-							</article>
-							<article class="item">
-								<div class="item-content"></div>
-							</article>
-						</div>
-					</div>
-				</div>
-				<div class="slogren">
-					<a href="" title="">
-						<h1>
-							HOGO TRUNG TÂM ĐÀO TẠO LÁI XE HÀNG ĐẦU TẠI VIỆT NAM 
-						</h1>
-						<h2>
-							LIÊN HỆ: 0931 15 68 18 - 0981 650 279
-						</h2>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="section page-map">
-	<div class="page-map-container">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-sm-8 col-md-offset-2">
-					<div class="row">
-						<div class="col-md-8 col-sm-8 col-xs-12 page-map-address">
-							{!! $page_map[0]['value'] !!}
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
-							<img src="{{ $page_map[1]['value'] }}" class="img-responsive img-map" alt="{{ $page_map[2]['value'] }}">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="main-menu mScrollbar">
-	<a onclick="menuClose()" href="javascript:void(0)" class="btn-close-menu" title="close">X</a>
-	<ul class="list-menu">
-		<li class="home-menu"><a class="no-line" href="http://greenmode.vn">Trang chủ</a></li>
-		<li>
-			<a href="">Giới thiệu</a>
-			<ul class="sub-menu">
-				<li><a href="http://greenmode.vn/vi/gioi-thieu-pa1.html">Giới thiệu chung</a></li>
-				<li><a href="http://greenmode.vn/vi/tuyen-dung-pa2.html">Tuyền dụng</a></li>
-				<li><a href="http://greenmode.vn/vi/tin-tuc-n1.html">Tin tức</a></li>                       
-				<li><a href="http://greenmode.vn/vi/lien-he-pa3.html">Liên hệ</a></li>
-			</ul>
-		</li>            
-		<li>
-			<a href="">Thương hiệu</a>
-			<ul class="sub-menu">
-				<li><a href="http://vacosi.com" target="_blank">VACOSI</a></li>
-				<li><a href="http://omivietnam.vn/" target="_blank">OMI</a></li>
-				<li><a href="http://hasi.vn" target="_blank">HASI</a></li>
-				<li><a href="http://www.newface.vn/b5-sokiss.html" target="_blank">SOKISS</a></li>
-				<li><a href="http://newface.vn" target="_blank">New Face</a></li>                 
-			</ul>
-		</li>
-		<li>
-			<a href="#">Kết nối</a>
-			<ul class="sub-social">
-				<li><a target="_blank" href="https://www.facebook.com/vacosimakeup"><img src="http://greenmode.vn/img/icons/icon-fb.png" title="" alt=""></a></li>                 
-				<li><a target="_blank" href="https://www.instagram.com/vacosi.makeup.house/"><img src="http://greenmode.vn/img/icons/logo-instagram.png" title="" alt=""></a></li>
-				<li><a target="_blank" href="https://www.youtube.com/channel/UCd15G5mj6zgWmASgVAxTtxg"><img src="http://greenmode.vn/img/icons/icon-youtube.png" title="" alt=""></a></li>
-				<li><a target="_blank" href="https://www.pinterest.com/vacosi/"><img src="http://greenmode.vn/img/icons/icon-pin.png" title="" alt=""></a></li>
-			</ul>
-		</li>            
-	</ul>
-	<div class="clearfix"></div>
-</div>
 @push('script')
+<script type="text/javascript" src="/public/web/jquery.countdown.min.js"></script>
 <script type="text/javascript">
-	function menuShow()
-	{
-		$("body").addClass("open-menu");
+	var seconds = 1320;
+	function timer() {
+		var days        = Math.floor(seconds/24/60/60);
+		var hoursLeft   = Math.floor((seconds) - (days*86400));
+		var hours       = Math.floor(hoursLeft/3600);
+		var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+		var minutes     = Math.floor(minutesLeft/60);
+		var remainingSeconds = seconds % 60;
+		if (remainingSeconds < 10) {
+			remainingSeconds = "0" + remainingSeconds; 
+		}
+		document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+		if (seconds == -1) {
+			clearInterval(countdownTimer);
+			confirm("Hết thời gian");
+			$('#form2').submit();
+			document.getElementById('countdown').innerHTML = "Finish!";
+		} else {
+			seconds--;
+		}
 	}
-	function menuClose()
-	{
-		$("body").removeClass("open-menu");
-	}
-</script>
-@endpush
+		var countdownTimer = setInterval('timer()', 1000);//chỗ này là số 1000 là đúng.
+	</script>
+	@endpush

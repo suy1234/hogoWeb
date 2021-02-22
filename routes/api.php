@@ -11,6 +11,11 @@ Route::prefix('exam')->group(function() {
 		'as' => 'api.exam.exam',
 		'uses' => 'App\ExamController@getExam',
 	]);
+
+	Route::post('check-exam/{exam_id}', [
+		'as' => 'api.exam.check',
+		'uses' => 'Api\QuestionController@checkExam',
+	]);
 });
 Route::prefix('student')->group(function() {
 	Route::get('test', [

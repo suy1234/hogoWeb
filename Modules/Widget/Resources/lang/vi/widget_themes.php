@@ -8,6 +8,7 @@ return [
 		'type' => 'Loại',
 	],
 	'form' => [
+		'title' => 'Tên theme',
 		'img' => 'Ảnh',
 		'type' => 'Loại',
 		'js' => 'Javacript',

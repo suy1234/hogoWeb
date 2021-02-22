@@ -245,7 +245,7 @@ Vue.component('form_image', {
 Vue.component('form_title', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label> 
+    <label v-html="label+':'"></label> 
     <input type="text" id="title" v-model="val" class="form-control ">
     </div>`,
     props: ['label', 'value'],
@@ -267,7 +267,7 @@ Vue.component('form_title', {
 Vue.component('form_textarea', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label> 
+    <label v-html="label+':'"></label> 
     <textarea class="form-control" rows="3" v-model="val"></textarea>
     </div>`,
     props: ['label', 'value'],
@@ -289,7 +289,7 @@ Vue.component('form_textarea', {
 Vue.component('form_code_js', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label> 
+    <label v-html="label+':'"></label> 
     <textarea class="form-control" :id="id" rows="3" v-model="val"></textarea>
     </div>`,
     props: ['label', 'value'],
@@ -325,7 +325,7 @@ Vue.component('form_code_js', {
 Vue.component('form_code_css', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label> 
+    <label v-html="label+':'"></label> 
     <textarea class="form-control" :id="id" rows="3" v-model="val"></textarea>
     </div>`,
     props: ['label', 'value'],
@@ -360,7 +360,7 @@ Vue.component('form_code_css', {
 Vue.component('form_code_html', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label> 
+    <label v-html="label+':'"></label> 
     <textarea class="form-control" :id="id" rows="3" v-model="val"></textarea>
     </div>`,
     props: ['label', 'value'],
@@ -397,7 +397,7 @@ Vue.component('form_code_html', {
 Vue.component('form_code_php', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label> 
+    <label v-html="label+':'"></label> 
     <textarea class="form-control" :id="id" rows="3" v-model="val"></textarea>
     </div>`,
     props: ['label', 'value'],
@@ -434,7 +434,7 @@ Vue.component('form_code_php', {
 Vue.component('form_menu', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label>
+    <label v-html="label+':'"></label>
     <select v-model="val" :id="id" class="form-control form-control-sm select2-from">
     <option></option>
     <option v-for="(item, key) in menus" :value="key" >{{item}}</option>
@@ -477,7 +477,7 @@ Vue.component('form_menu', {
 Vue.component('form_group', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label>
+    <label v-html="label+':'"></label>
     <select v-model="val" class="form-control form-control-sm select2-from" :id="id">
     <option></option>
     <option v-for="(item, key) in groups" :value="key" >{{item}}</option>
@@ -526,7 +526,7 @@ Vue.component('form_group', {
 Vue.component('form_category', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label>
+    <label v-html="label+':'"></label>
     <select v-model="val" class="form-control form-control-sm select2-from" :id="id">
     <option></option>
     <option v-for="(item, key) in categorys" :value="key" >{{item}}</option>
@@ -575,10 +575,15 @@ Vue.component('form_category', {
 Vue.component('form_content', {
     props: ['value', 'label'],
     template: `<div class="form-group">
-    <label for="title">{{ label }}:</label>
-    <textarea rows="2" class="form-control tinymce" v-bind:value="value"></textarea>
+    <label for="title" v-html="label+':'"></label>
+    <textarea rows="2" :id="'tinymce'+rand_id" class="form-control tinymce" v-bind:value="value"></textarea>
     </div>
     `,
+    data: function () {
+        return {
+            rand_id : Math.floor((Math.random() * 100) + 1)
+        }
+    },
     methods: {
         updateValue: function (value) {
             this.$emit('input', value.trim());
@@ -589,7 +594,7 @@ Vue.component('form_content', {
         tinyMCE.baseURL = `/public/admin/app/js/wysiwyg`;
 
         tinyMCE.init({
-            selector: '.tinymce',
+            selector: '#tinymce'+vm.rand_id,
             plugins: 'preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount textpattern noneditable charmap emoticons',
             imagetools_cors_hosts: ['picsum.photos'],
             toolbar: 'insertfile image fullscreen template link anchor codesample undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | ltr rtl',
@@ -628,12 +633,13 @@ Vue.component('form_content', {
                 });
             }
         });
-    }
+    },
+    created: function () {},
 });
 Vue.component('form_icon', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label>
+    <label v-html="label+':'"></label>
         <input type="text" class="form-control form-control-sm" v-model="val">
     </div>`,
     props: ['label', 'value'],
@@ -676,10 +682,35 @@ Vue.component('form_form_icon', {
     },
     created: function () {        },
 });
+Vue.component('form_social', {
+    template: `
+    <div>
+    <div class="form-group" v-for="(val, index) in vals">
+        <div class="input-group input-group-sm">
+            <span :class="'input-group-addon '+val.title" style="50px;">{{ val.title }}</span>
+            <input type="link" class="form-control form-control-sm" v-model="val.value">
+        </div>
+    </div></div>`,
+    props: ['label', 'value'],
+    data: function () {
+        return {
+            vals: this.value
+        }
+    },
+    methods: {
+
+    },
+    watch: {
+        val: function (val) {
+            this.$emit('input', val);
+        },
+    },
+    created: function () {        },
+});
 Vue.component('form_textarea', {
     template: `
     <div class="form-group">
-    <label for="title">{{ label }}:</label>
+    <label v-html="label+':'"></label>
         <textarea rows="2" class="form-control" v-model="val"></textarea>
     </div>`,
     props: ['label', 'value'],

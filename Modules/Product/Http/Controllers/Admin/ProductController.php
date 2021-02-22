@@ -55,4 +55,8 @@ class ProductController extends Controller
             'brands' => Brand::get(['id', 'title']),
         ];
     }
+
+    public function store(){
+        dd(request()->all());
+    }
 }

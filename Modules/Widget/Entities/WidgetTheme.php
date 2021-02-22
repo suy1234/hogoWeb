@@ -12,6 +12,7 @@ class WidgetTheme extends AppModel
 {
     protected $module = 'widget';
     protected $fillable = array(
+        'title',
         'img',
         'type',
         'config',

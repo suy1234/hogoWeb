@@ -43,7 +43,7 @@
 	<div class="col-sx-12 col-sm-4 col-md-4">
 		<div class="form-group form-group-feedback form-group-feedback-right">
 			<label class="control-label" for="brand">
-				{{ trans('product::products.form.brand') }}<code>*</code>:
+				{{ trans('product::products.form.brand') }}:
 			</label>
 			<select2 allowclear v-model="form.brand_id" :options="brands" name="brand_id" id="brand_id" class="form-control form-control-sm" placeholder="{{ trans('validation.attributes.select') }}" name="brand"></select2>
 		</div>

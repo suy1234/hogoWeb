@@ -16,12 +16,8 @@
   </div>
 </div>
 @include('app::admin.components.form.images', ['title' => trans('website::posts.form.gallery'), 'key' => 'form', 'form' => 'gallerys'])
-<div class="form-group">
-  <label for="title">
-    {{ trans('website::pages.form.content') }}<code>*</code>
-  </label>
-  <form_content v-model="form.content"></form_content>
-</div>
+
+<form_content v-model="form.content" :label="'{{ trans('website::pages.form.content') }}<code>*</code>'"></form_content>
 @push('script')
 <script type="text/javascript">
   var mix = {

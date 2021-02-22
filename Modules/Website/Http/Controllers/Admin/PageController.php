@@ -77,7 +77,7 @@ class PageController extends Controller
 
     public function build(Request $request)
     {
-        $layout_ids = Layout::whereNotNull('widget_id')->get()->pluck('widget_id');
+        $layout_ids = Layout::whereNotNull('widget_id')->get()->pluck('widget_id')->toArray();
         if(count($layout_ids)){
             $api = config('erp.api.layout');
             if(env('APP_ENV') != 'local')
@@ -91,21 +91,25 @@ class PageController extends Controller
                     ],
                 ]);
 
-                $widget_themes = collect(json_decode((string) $response->getBody(), true));
+                $widget_themes = json_decode((string) $response->getBody(), true);
             }else{
-                $widget_themes = WidgetTheme::whereIn('id', $layout_ids)->get();
+                $widget_themes = [
+                    'data' => WidgetTheme::whereIn('id', $layout_ids)->get()->toArray()
+                ];
             }
-            
-            $css = str_replace(["\t", "\n"], '', implode('', $widget_themes->pluck('css')->toArray()));
-            if(!empty($css)){
-                Theme::buildTheme($css, 'css', 'style.css');
-            }
-            
-            $js = str_replace(["\t", "\n"], '', implode('', $widget_themes->pluck('js')->toArray()));
-            if(!empty($js)){
-                Theme::buildTheme($js, 'js', 'script.js');
+            if(!empty($widget_themes['data'])){
+                $css = str_replace(["\t", "\n"], '', implode('', array_column($widget_themes['data'], 'css')));
+                if(!empty($css)){
+                    Theme::buildTheme($css, 'css', 'style.css');
+                }
+                
+                $js = str_replace(["\t", "\n"], '', implode('', array_column($widget_themes['data'], 'js')));
+                if(!empty($js)){
+                    Theme::buildTheme($js, 'js', 'script.js');
+                }
+                return response()->json(['success' => true]);
             }
         }
-        return response()->json(['success' => true]);
+        return response()->json(['success' => false]);
     }
 }

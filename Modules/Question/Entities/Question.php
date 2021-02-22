@@ -9,6 +9,7 @@ use Modules\Question\Entities\QuestionAnswer;
 use Modules\Core\Entities\Category;
 use Modules\Core\Entities\Groups;
 use Modules\Core\Entities\GroupTypes;
+
 class Question extends AppModel
 {
     protected $module = 'question';
@@ -16,7 +17,6 @@ class Question extends AppModel
         "title",
         "content",
         "img",
-        "question",
         "category_id",
         "group_id",
         "group_type_id",
