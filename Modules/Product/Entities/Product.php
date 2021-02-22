@@ -84,7 +84,7 @@ class Product extends AppModel
     {
         $query = $this->search($request);
 
-        $query->select('parent_id', 'category_id', 'title', 'price', 'price_sale', 'sku', 'status');
+        $query->select('img','parent_id', 'category_id', 'title', 'price', 'price_sale', 'sku', 'status');
         return new ProductTable($query);
     }
 

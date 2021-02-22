@@ -91,6 +91,11 @@ class ThemeSettingController extends Controller
             --blue:#3490dc;
             --font-family:'".$data['font']."',sans-serif;
         }
+        *{
+          margin:0;
+          padding: 0;
+          font-family: ".$data['font'].",sans-serif;
+        }
         body {
             margin:0;
             font-family: ".$data['font'].",sans-serif;
@@ -112,6 +117,10 @@ class ThemeSettingController extends Controller
         }
         .price-sale{
             color: ".$data['color_website']['price_sale_color'].";
+        }
+        .img-responsive {
+          max-width: 100%;
+          max-height: 100%;
         }
         @font-face {
           font-family:'Roboto';

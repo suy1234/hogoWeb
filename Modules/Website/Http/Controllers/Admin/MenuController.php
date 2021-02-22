@@ -103,9 +103,10 @@ class MenuController extends Controller
 
     public function storeMenu(Request $request){
         $data = $request->list;
-        foreach ($data as $value) {
+        foreach ($data as $key => $value) {
             $menu = Menu::find($value['id']);
             $menu->parent_id = 0;
+            $menu->order = $key;
             $menu->save();
             if(!empty($value['children'])){
                 if(!empty($value['children'])){
@@ -118,9 +119,10 @@ class MenuController extends Controller
 
     public function storeMenuChildren($data, $parent_id)
     {
-        foreach ($data as $value) {
+        foreach ($data as $key => $value) {
             $menu = Menu::find($value['id']);
             $menu->parent_id = $parent_id;
+            $menu->order = $key;
             $menu->save();
             if(!empty($value['children'])){
                 $this->storeMenuChildren($value['children'], $value['id']);
@@ -151,6 +153,6 @@ class MenuController extends Controller
 
     public function getList(Request $request)
     {
-        return response()->json(['success' => true, 'data' => $this->getModel()->where('menu_id', $request->menu_id)->where('parent_id', 0)->get()]);
+        return response()->json(['success' => true, 'data' => $this->getModel()->where('menu_id', $request->menu_id)->where('parent_id', 0)->orderBy('order')->get()]);
     }
 }

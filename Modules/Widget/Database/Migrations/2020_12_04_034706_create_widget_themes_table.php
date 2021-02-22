@@ -15,6 +15,7 @@ class CreateWidgetThemesTable extends Migration
     {
         Schema::create('widget_themes', function (Blueprint $table) {
             $table->bigIncrements('id')->index();
+            $table->string('title')->nullable();
             $table->string('img')->nullable();
             $table->char('type');
             $table->text('setting')->nullable();

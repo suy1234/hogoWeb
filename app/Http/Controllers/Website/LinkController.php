@@ -46,9 +46,10 @@ class LinkController extends WebsiteController
                 break;
 
             case 'pages':
-                    $page = \Modules\Website\Entities\Page::find($seo->taxonomy_id);
-                    if(count($page->layouts)){
-                        return view('themes.default.widget', compact('seo', 'page', 'default'));
+                    $data = \Modules\Website\Entities\Page::find($seo->taxonomy_id);
+                    if(count($data->layouts)){
+                        $layouts = $data->layouts;
+                        return view('themes.default.widget', compact('seo', 'data', 'default', 'layouts'));
                     }
                     return view('themes.default.page', compact('seo', 'page', 'default'));
 

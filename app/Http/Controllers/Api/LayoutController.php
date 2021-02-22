@@ -13,11 +13,11 @@ class LayoutController extends Controller
     {
         if(!empty($request->ids)){
             $data = WidgetTheme::whereIn('id', $request->ids)->select('css', 'js')->get();
-            if(!count($data)){
-                foreach ($data as $value) {
-                    $value->view += 1;
-                    $value->save();
-                }
+            if(count($data)){
+                // foreach ($data as $value) {
+                //     $value->view += 1;
+                //     $value->save();
+                // }
                 return response()->json(['success' => true, 'data' => $data]);
             }
         }

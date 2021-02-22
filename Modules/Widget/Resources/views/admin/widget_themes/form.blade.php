@@ -1,3 +1,4 @@
+<form_title v-model="form.title" :label="'{{ trans('widget::widget_themes.form.title') }}'"></form_title>
 <image_change v-model="form.img" :title="'{{ trans('widget::widget_themes.form.img') }}'"></image_change>
 <div class="form-group form-group-feedback form-group-feedback-right">
     <label class="control-label" for="type">

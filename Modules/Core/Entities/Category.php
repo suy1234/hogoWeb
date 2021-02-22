@@ -5,7 +5,7 @@ namespace Modules\Core\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\App\Entities\AppModel;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Question\Entities\QuestionAnswer;
+use Modules\Question\Entities\Question;
 use Modules\Core\Entities\Seo;
 class Category extends AppModel
 {
@@ -52,6 +52,7 @@ class Category extends AppModel
     {
         return $this->belongsTo($this, 'parent_id');
     }
+
     public function children()
     {
         return $this->hasMany($this, 'parent_id', 'id');
@@ -90,5 +91,10 @@ class Category extends AppModel
             'question_href' => route('admin.questions.create', ['cat_id' => $param->id]),
             'parent' => @$param->parent->title
         ];
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'category_id', 'id');
     }
 }

@@ -8,6 +8,7 @@ return [
 		'banner' => 'Banner',
 		'header' => 'Header',
 		'menu' => 'Menu',
+		'exam' => 'Câu hỏi',
 		// 'footer' => 'Footer',
 		// 'post' => 'Chi tiết bài viết',
 		// 'posts' => 'Danh sách bài viết',

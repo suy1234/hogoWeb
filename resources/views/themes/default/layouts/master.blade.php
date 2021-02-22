@@ -35,43 +35,16 @@
 	<meta property="fb:admins" content="{{ appID()['facebook'] }}" />
 	@endif
 	<link rel="stylesheet" type="text/css" href="/public/web/fontawesome/styles.min.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/web/animate.min.css" media="all">
+	@if(empty(auth()->user()->id))
+		<link rel="stylesheet" type="text/css" href="/public/web/animate.min.css" media="all">
+		<link rel="stylesheet" type="text/css" href="/public/web/aos/aos.css" media="all">
+	@endif
 	<link rel="stylesheet" type="text/css" href="/public/web/alocool/alocool.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/public/web/aos/aos.css" media="all">
 	<link rel="stylesheet" type="text/css" href="/kh/992020/vendor/slick/slick.css" media="all">
 	<link rel="stylesheet" type="text/css" href="/public/web/bootstrap/bootstrap.min.css" media="all">
 	<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/default.css') }}?v={{ rand() }}" media="all">
 	<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/style.css') }}?v={{ rand() }}" media="all">
 	<style type="text/css">
-		body{
-			font-family: 'Roboto' !important;
-		}
-		img{
-			height: auto;
-		}
-		.mid-header .content_header .searchbox .search-box{
-			width: auto;
-		}
-		.mid-header .content_header .searchbox .search-box .header-search{
-			right: -40px;
-		}
-		.header.header-active{
-			background: #2f3043;
-		}
-		.page-content{
-			padding-top: 77px;
-		}
-		.page-content .p-2{
-			padding: 15px 0;
-		}
-		.page-content .content{
-			text-align: justify;
-		}
-		.page-content .content img{
-			margin: auto;
-			width: 100%;
-			text-align: center;
-		}
 		@-webkit-keyframes xoayvong{
 			from{
 				-webkit-transform:rotate(0deg);
@@ -148,39 +121,6 @@
 		}
 		.navbar-inner-left .sidebar li ul li a:hover {
 			color: #5ecfef;
-		}
-	</style>
-	<style>
-		:root {
-			--header-background-default: ;
-			--header-border-extra: ;
-			--header-background-default: ;
-			--header-background-extra: ;
-			--header-text-extra: ;
-			--header-border: ;
-			--header-text-default: #FFF;
-			--header-text-hover: #5ecfef;
-			--header-text-active: #FFF;
-
-			--background:#fff;
-			--font-family: 'Roboto' !important;
-			--font-size: 14px;
-			--btn-default: #5ecfef;
-			--btn-color-default: #fff;
-			--btn-hover: #2674be;
-			--btn-color-hover: #fff;
-
-			--border-default: #2674be;
-			--border-hover: #68c9f6;
-
-			--footer-background: #212121;
-			--footer-text-default: #9e9e9e;
-			--footer-text-hover: #fff;
-			--footer-border: #2674be;
-			--footer-border-hover: #2674be;
-
-			--footer-background-extra: #111;
-			--footer-text-extra: #9e9e9e;
 		}
 	</style>
 	@stack('style')
