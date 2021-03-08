@@ -16,7 +16,7 @@ class CreateUnitsTable extends Migration
         DB::unprepared("
             CREATE TABLE `units` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `title` varchar(200) NOT NULL,
+            `title` varchar(255) NOT NULL,
             `type` char(10) DEFAULT NULL,
             `status` tinyint(1) DEFAULT '1',
             `created_by` INT(5) UNSIGNED NULL,

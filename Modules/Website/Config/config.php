@@ -40,6 +40,11 @@ return [
 			'price_color' => '',
 			'price_sale_color' => '',
 		],
+        'sidebar' => [
+            'border_color' => '',
+            'border_sub_color' => '',
+            'border_sub2_color' => '',
+        ],
 		'layout' => 'boxed',
 		'layout_box' => 'style1',
 	]

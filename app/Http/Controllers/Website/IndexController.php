@@ -13,15 +13,17 @@ class IndexController extends WebsiteController
 {
     public function index(Request $request)
     {
-    	$page = Page::find(1);
+    	$page = Page::where('page_default' ,1)->first();
         $seo = $page->getSeo();
         $layouts = $page->layouts()->with('widgets')->get()->toArray();
+        \View::share('class_page', 'home');
         return view('themes.default.index', compact('seo', 'page', 'layouts'));
     }
 
     public function default(Request $request)
     {
         $layouts = Layout::get();
+         \View::share('class_page', 'page');
         return view('themes.default.default', compact( 'layouts'));
     }
 }

@@ -220,6 +220,11 @@ Route::prefix('pages')->group(function() {
 		'middleware' => 'can:admin.pages.design',
 	]);
 
+	Route::post('pages/layouts/{id}/default', [
+		'as' => 'admin.pages.layouts.default',
+		'uses' => 'PageController@layoutDefault',
+		'middleware' => 'can:admin.pages.design',
+	]);
 });
 
 Route::prefix('posts')->group(function() {
@@ -343,15 +348,9 @@ Route::prefix('layouts')->group(function() {
 		'middleware' => 'can:admin.layouts.design',
 	]);
 
-	Route::post('{id}/design/store', [
-		'as' => 'admin.layouts.design_store',
-		'uses' => 'LayoutController@designStore',
-		'middleware' => 'can:admin.layouts.design',
-	]);
-
-	Route::post('store', [
-		'as' => 'admin.layouts.store',
-		'uses' => 'LayoutController@store',
+	Route::post('save-layout-theme', [
+		'as' => 'admin.layouts.save_layout_theme',
+		'uses' => 'LayoutController@saveLayout',
 		'middleware' => 'can:admin.layouts.create',
 	]);
 });

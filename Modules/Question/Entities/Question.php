@@ -87,6 +87,18 @@ class Question extends AppModel
                 ->orWhere('content', 'like', '%'.$keyword.'%');
             });
         }
+
+        if(!empty($category_id = intval(array_get(request()->all(), 'category_id')))){
+            $query = $query->where('category_id', $category_id);
+        }
+
+        if(!empty($group_type_id = intval(array_get(request()->all(), 'group_type_id')))){
+            $query = $query->where('group_type_id', $group_type_id);
+        }
+
+        if(!empty($group_id = intval(array_get(request()->all(), 'group_id')))){
+            $query = $query->where('group_id', $group_id);
+        }
         return $query;
     }
 

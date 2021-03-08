@@ -27,5 +27,10 @@ return [
 		-2 => 'Xóa vào thùng rác',
 		-1 => 'Ẩn',
 		1 => 'Hiện',
+	],
+	'filters' => [
+		'category' => 'Danh mục sản phẩm',
+		'group' => 'Nhóm sản phẩm',
+		'brand' => 'Nhãn hiệu',
 	]
 ];

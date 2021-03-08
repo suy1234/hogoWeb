@@ -46,8 +46,8 @@
 	var mix = {
 		data: {
 			categorys: {!! $categorys !!},
-			groups: {!! groups() !!},
-			group_types: {!! group_types() !!},
+			groups: {!! groups(request()->code) !!},
+			group_types: {!! group_types(request()->code) !!},
 			form: {
 				img: '{{ $category->img }}',
 				title: '{{ $category->title }}',

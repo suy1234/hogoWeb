@@ -1,14 +1,20 @@
 <?php
 if (! function_exists('groups')) {
-    function groups()
+    function groups($type)
     {
-        return \Modules\Core\Entities\Groups::where('type', request()->code)->get()->pluck('title', 'id');
+        return \Modules\Core\Entities\Groups::where('type', $type)->select('title', 'id')->get()->pluck('title', 'id');
     }
 }
 if (! function_exists('group_types')) {
-    function group_types()
+    function group_types($type)
     {
-        return \Modules\Core\Entities\GroupTypes::where('type', request()->code)->get()->pluck('title', 'id');
+        return \Modules\Core\Entities\GroupTypes::where('type', $type)->select('title', 'id')->get()->pluck('title', 'id');
+    }
+}
+if (! function_exists('categories')) {
+    function categories($type)
+    {
+        return \Modules\Core\Entities\Category::where('type', $type)->select('title', 'id')->get()->pluck('title', 'id');
     }
 }
 if (! function_exists('update_setting')) {

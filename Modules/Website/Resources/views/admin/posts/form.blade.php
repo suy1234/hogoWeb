@@ -40,7 +40,7 @@
 		mixins: [gallerys],
 		data: {
 			categorys: {!! @$categorys !!},
-			groups: {!! groups() !!},
+			groups: {!! groups('post') !!},
 			form: {
 				img: '{{ @$post->img }}',
 				title: '{{ @$post->title }}',

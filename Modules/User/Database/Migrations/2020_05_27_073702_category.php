@@ -16,9 +16,9 @@ class Category extends Migration
         DB::unprepared("
             CREATE TABLE `categorys` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `title` varchar(200) NOT NULL,
+            `title` varchar(255) NOT NULL,
             `parent_id` char(30) DEFAULT NULL,
-            `description` varchar(255) DEFAULT NULL,
+            `description` varchar(512) DEFAULT NULL,
             `content` text COLLATE utf8mb4_unicode_ci,
             `img` varchar(255) DEFAULT NULL,
             `alias` varchar(255) DEFAULT NULL,

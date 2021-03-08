@@ -24,4 +24,9 @@ return [
 		1 => 'Bật',
 		-1 => 'Tắt'
 	],
+	'filters' => [
+		'category' => 'Danh mục câu hỏi',
+		'group' => 'Nhóm câu hỏi',
+		'group_type' => 'Đề thi',
+	]
 ];

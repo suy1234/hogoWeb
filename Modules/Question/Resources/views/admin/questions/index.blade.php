@@ -9,6 +9,11 @@
 
 @section('content')
 @component('app::admin.components.table')
+@slot('filter')
+	@include('core::admin.group_types.filters.group_types', ['type' => 'question', 'title' => trans('question::questions.filters.group_type')])
+	@include('core::admin.categorys.filters.categories', ['type' => 'question', 'title' => trans('question::questions.filters.category')])
+	@include('core::admin.groups.filters.groups', ['type' => 'question', 'title' => trans('question::questions.filters.group')])
+@endslot
 @slot('title', trans('question::questions.table.list'))
 @slot('route', route('admin.questions.index'))
 @slot('resource', 'questions')

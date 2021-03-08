@@ -51,12 +51,17 @@
 		<template v-else>
 			<component :is="'form_'+form.widget" :label="form.config.label" v-model="form.config.value"></component>
 		</template>
-
+		<div class="submit-btn">
+			<button class="btn btn-primary btn-sm" v-on:click="save">
+				Lưu
+			</button>
+		</div>
 	</div>
-	<div class="submit-btn">
-		<button class="btn btn-primary btn-sm" v-on:click="save">
-			Lưu
-		</button>
+	<div v-else>
+		<p style="color: #000;">
+			Vui lòng click vào biểu tượng để chỉnh sửa
+		</p>
 	</div>
+	
 </div>
 @endif

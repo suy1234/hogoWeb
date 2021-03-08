@@ -9,6 +9,10 @@
 
 @section('content')
 	@component('app::admin.components.table')
+		@slot('filter')
+			@include('core::admin.categorys.filters.categories', ['type' => 'post', 'title' => trans('website::posts.filters.category')])
+			@include('core::admin.groups.filters.groups', ['type' => 'post', 'title' => trans('website::posts.filters.group')])
+		@endslot
 		@slot('title', trans('website::posts.table.list'))
 		@slot('route', route('admin.posts.index'))
 		@slot('resource', 'posts')
@@ -30,11 +34,4 @@
 		@endpush
 
 	@endcomponent
-	{{-- @component('app::admin.components.form')
-		@slot('resource', 'posts')
-		@push('form')
-			@include('website::admin.posts.form')
-		@endpush
-	@endcomponent --}}
-
 @endsection

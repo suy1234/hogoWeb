@@ -18,7 +18,7 @@ class Employees extends Migration
             `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
             `code` CHAR(5) NULL,
             `img` VARCHAR(255) NULL,
-            `fullName` VARCHAR(255) NULL,
+            `fullname` VARCHAR(255) NULL,
             `phone` CHAR(20) NULL,
             `email` VARCHAR(255) NULL,
             `sex` TINYINT(2) UNSIGNED NULL,

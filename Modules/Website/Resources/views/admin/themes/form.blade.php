@@ -76,6 +76,23 @@
 		
 		<fieldset class="content-group">
 			<legend class="font-weight-bold text-uppercase">
+				{{ trans('website::themes.form.sidebar.title') }}
+			</legend>
+			<div class="row">
+				<div class="col-md-4 col-sm-4 col-xs-12">
+					<form_color :color="form.config.sidebar.border_color" v-model="form.config.sidebar.border_color" :label="'{{ trans('website::themes.form.sidebar.border_color') }}'" /> 
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12">
+					<form_color :color="form.config.sidebar.border_sub_color" v-model="form.config.sidebar.border_sub_color" :label="'{{ trans('website::themes.form.sidebar.border_sub_color') }}'" /> 
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12">
+					<form_color :color="form.config.sidebar.border_sub2_color" v-model="form.config.sidebar.border_sub2_color" :label="'{{ trans('website::themes.form.sidebar.border_sub2_color') }}'" /> 
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset class="content-group">
+			<legend class="font-weight-bold text-uppercase">
 				{{ trans('website::themes.setting_price_color') }}
 			</legend>
 			<div class="row">

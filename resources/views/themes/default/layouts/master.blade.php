@@ -33,8 +33,12 @@
 	<meta property="article:section" content="{{ $seo['description'] }}" />
 	<meta property="article:tag" content="{{ $seo['title'] }}, {{ $seo['keyword'] }}" />
 	<meta property="fb:admins" content="{{ appID()['facebook'] }}" />
+	@else
+	<meta name="robots" content="noindex" />
+	<meta name="googlebot" content="noindex">
+	<meta name="googlebot-news" content="nosnippet">
 	@endif
-	<link rel="stylesheet" type="text/css" href="/public/web/fontawesome/styles.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/web/font-awesome/css/font-awesome.min.css" media="all">
 	@if(empty(auth()->user()->id))
 		<link rel="stylesheet" type="text/css" href="/public/web/animate.min.css" media="all">
 		<link rel="stylesheet" type="text/css" href="/public/web/aos/aos.css" media="all">
@@ -125,7 +129,7 @@
 	</style>
 	@stack('style')
 </head>
-<body>
+<body class="{{ $class_page }}-page">
 	<div id="app-edit-web-admin">
 		<header>
 			@include('themes.default.layouts.header')

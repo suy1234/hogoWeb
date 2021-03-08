@@ -18,7 +18,7 @@ class Position extends Migration
             `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
             `lang` CHAR(10) NULL DEFAULT 'vi',
             `parent_id` INT(10) UNSIGNED DEFAULT NULL,
-            `title` VARCHAR(100) DEFAULT NULL,
+            `title` VARCHAR(255) DEFAULT NULL,
             `created_by` INT(5) UNSIGNED NULL,
             `status` tinyint(2) DEFAULT '1',
             `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ,

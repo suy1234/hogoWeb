@@ -86,10 +86,20 @@ class ThemeSettingController extends Controller
     {
         $data = $this->getModel()->withoutGlobalScope('active')->where('status', 1)->select('config')->first()->config;
         $font = strtolower($data['font']);
+        $sidebar = '';
+        foreach ($data['sidebar'] as $key => $value) {
+          $sidebar .= '--'.str_replace('_', '-', $key).':'.$value.';';
+        }
+        $color_website = '';
+        foreach ($data['color_website'] as $key => $value) {
+          $color_website .= '--'.str_replace('_', '-', $key).':'.$value.';';
+        }
         $css = "
         :root {
             --blue:#3490dc;
             --font-family:'".$data['font']."',sans-serif;
+            ".$sidebar."
+            ".$color_website."
         }
         *{
           margin:0;
@@ -107,10 +117,14 @@ class ThemeSettingController extends Controller
             ".(!empty($data['color_website']['background']) ? "background: url(".$data['color_website']['background'].") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;" : '')."
         }
         a,a *{
-            color: ".$data['color_website']['link_color'].";
+          color: ".$data['color_website']['link_color'].";
+          text-decoration: none;
+          font-family: ".$data['font'].",sans-serif;
         }
         a:hover,a *:hover{
-            color: ".$data['color_website']['link_hover_color'].";
+          color: ".$data['color_website']['link_hover_color'].";
+          text-decoration: none;
+          font-family: ".$data['font'].",sans-serif;
         }
         .price{
             color: ".$data['color_website']['price_color'].";
@@ -118,9 +132,10 @@ class ThemeSettingController extends Controller
         .price-sale{
             color: ".$data['color_website']['price_sale_color'].";
         }
-        .img-responsive {
+        .img-responsive, img {
           max-width: 100%;
           max-height: 100%;
+          height: 100%;
         }
         @font-face {
           font-family:'Roboto';

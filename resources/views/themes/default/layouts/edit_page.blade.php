@@ -27,9 +27,18 @@
 <script type="text/javascript" src="{{ asset('public/admin/vue/helper.js') }}?v={{ rand() }}"></script>
 
 <style type="text/css" rel="stylesheet">
+
+	body{
+		width: calc(100% - 400px);
+	}
+	#app-edit-web-admin{
+		width: 100%;
+		border: 3px solid #000;
+		overflow: hidden;
+	}
 	.admin-edit-page{
 		position: fixed;
-		right: -500px;
+		right: 0px;
 		width: 400px;
 		height: 100vh;
 		z-index: 99;
@@ -89,6 +98,7 @@
 		text-align: center;
 		color: #FFF !important;
 		cursor: pointer;
+		z-index: 999999
 	}
 	.admin-page-backgroup{
 		position: fixed;

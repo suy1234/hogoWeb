@@ -64,11 +64,12 @@ class Page extends AppModel
         return [
             'url_builder' => route('admin.pages.editor', ['id' => $param->id]),
             'url_design' => route('admin.pages.design', ['id' => $param->id]),
+            'url_default' => route('admin.pages.layouts.default', ['id' => $param->id]),
         ];
     }
 
     public function layouts()
     {
-        return $this->hasMany(Layout::class, 'page_id');
+        return $this->hasMany(Layout::class, 'page_id')->orderBy('order');
     }
 }

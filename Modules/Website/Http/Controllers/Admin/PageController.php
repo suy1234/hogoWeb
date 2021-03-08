@@ -112,4 +112,9 @@ class PageController extends Controller
         }
         return response()->json(['success' => false]);
     }
+    public function layoutDefault($id)
+    {
+        Page::where('page_default', 1)->update(['page_default' => 0]);
+        return response()->json(['success' => Page::where('id', $id)->update(['page_default' => 1])]);
+    }
 }

@@ -3,6 +3,9 @@ return [
 	'module' => 'Danh mục',
 	'categorys' => 'Danh mục',
 	'category' => 'Danh mục',
+	'filters' => [
+		'select_category' => 'Chọn danh mục',
+	],
 	'status' => [
 		-1 => 'Đã ẩn',
 		1 => 'Đã bật',

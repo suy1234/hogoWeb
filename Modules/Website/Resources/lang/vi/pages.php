@@ -19,6 +19,7 @@ return [
 		'widget_id' => 'ID Widget',
 		'widget' => 'Widget name',
 		'widget_type' => 'Widget type',
+		'has_database' => 'Có lấy database không'
 	],
 	'status' => [
 		1 => 'Bật',

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\App\Entities\AppModel;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Widget\Entities\WidgetTheme;
+use Modules\Website\Entities\Theme;
 
 class Layout extends AppModel
 {
@@ -13,6 +14,7 @@ class Layout extends AppModel
     protected $fillable = array(
         'title',
         'type',
+        'theme_id',
         'page_id',
         'parent_id',
         'class',
@@ -20,6 +22,7 @@ class Layout extends AppModel
         'widget',
         'widget_type',
         'config',
+        'has_database',
         'status',
         'created_by',
         'updated_at',
@@ -34,6 +37,8 @@ class Layout extends AppModel
         parent::boot();
         static::creating(function (self $layout) {
             $layout->created_by = auth()->id();
+            $layout->has_database = (!empty($layout->has_database) && $layout->has_database === 'true') ? 1 : 0;
+            $layout->theme_id = Theme::where('status', 1)->value('id');
         });
     }
 

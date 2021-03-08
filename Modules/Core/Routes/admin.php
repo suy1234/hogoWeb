@@ -230,3 +230,53 @@ Route::prefix('setting')->group(function() {
 		'uses' => 'PackageController@package',
 	]);
 });
+
+// Route::prefix('attributes/{code}')->group(function() {
+// 	Route::get('', 'AttributeController@index')->name('admin.attributes.index');
+// 	Route::post('', [
+// 		'as' => 'admin.attributes.index',
+// 		'uses' => 'AttributeController@table',
+// 		'middleware' => 'can:admin.attributes.index',
+// 	]);
+// 	Route::get('create', [
+// 		'as' => 'admin.attributes.create',
+// 		'uses' => 'AttributeController@create',
+// 		'middleware' => 'can:admin.attributes.create',
+// 	]);
+
+// 	Route::post('store', [
+// 		'as' => 'admin.attributes.store',
+// 		'uses' => 'AttributeController@store',
+// 		'middleware' => 'can:admin.attributes.create',
+// 	]);
+
+// 	Route::get('edit/{id}', [
+// 		'as' => 'admin.attributes.edit',
+// 		'uses' => 'AttributeController@edit',
+// 		'middleware' => 'can:admin.attributes.edit',
+// 	]);
+
+// 	Route::post('update/{id}', [
+// 		'as' => 'admin.attributes.update',
+// 		'uses' => 'AttributeController@update',
+// 		'middleware' => 'can:admin.attributes.edit',
+// 	]);
+
+// 	Route::post('status', [
+// 		'as' => 'admin.attributes.status',
+// 		'uses' => 'AttributeController@status',
+// 		'middleware' => 'can:admin.attributes.create',
+// 	]);
+
+// 	Route::post('destroy', [
+// 		'as' => 'admin.attributes.destroy',
+// 		'uses' => 'AttributeController@destroy',
+// 		'middleware' => 'can:admin.attributes.destroy',
+// 	]);
+
+// 	Route::get('{id}/show', [
+// 		'as' => 'admin.attributes.show',
+// 		'uses' => 'AttributeController@show',
+// 		'middleware' => 'can:admin.attributes.show',
+// 	]);
+// });

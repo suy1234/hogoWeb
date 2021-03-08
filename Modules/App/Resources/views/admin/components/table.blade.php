@@ -209,7 +209,7 @@
                 formdata.append('page' , vm.pagination.page);
                 formdata.append('numRow' , vm.pagination.numRow);
                 formdata.append('table' , true);
-                helper.post( '{{ $route }}' , formdata ,15000)
+                helper.post( '{{ $route }}?{!! http_build_query(request()->all()) !!}' , formdata ,15000)
                 .done( function(res , status , xhr){
                     vm.isLoading = false;
                     vm.data = res.data;
@@ -257,7 +257,23 @@
                     helper.showNotification('{{ trans('validation.attributes.error') }}', 'danger', 1000);
                 })
             },
-
+            sendUrl: function(url) {
+                var vm = this;
+                var formdata = new FormData;
+                helper.post(url, formdata ,15000)
+                .done( function(res , status , xhr){
+                    if(res.success){
+                        vm.load();
+                        helper.showNotification('{{ trans('validation.attributes.success') }}', 'success', 1000);
+                    }else{
+                        helper.showNotification('{{ trans('validation.attributes.error') }}', 'danger', 1000);
+                    }
+                    
+                })
+                .fail(function(err){
+                    helper.showNotification('{{ trans('validation.attributes.error') }}', 'danger', 1000);
+                })
+            },
             destroy: function(id = '') {    
                 var vm = this;
                 if(id != ''){

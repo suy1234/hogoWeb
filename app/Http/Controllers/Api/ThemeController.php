@@ -34,6 +34,12 @@ class ThemeController extends Controller
             if(count($data_table)){
                 foreach ($data_table as $table) {
                     $res_table = DB::table($table['table']);
+                    if($table['table'] == 'menus'){
+                        $res_table = $res_table->where(function ($query) {
+                            $query->whereNull('menu_id')
+                                  ->orWhere('menu_id', 0);
+                        });
+                    }
                     if(!empty($table['type'])){
                         $res_table = $res_table->where('type', $table['type'])->where('status', 1);
                     }

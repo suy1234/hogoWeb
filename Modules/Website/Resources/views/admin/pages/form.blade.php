@@ -35,7 +35,7 @@
           title: '{{ @$page->seo->title }}',
           description: '{{ @$page->seo->description }}',
           keyword: '{{ @$page->seo->keyword }}',
-          alias: '{{ @$page->seo->alias }}',
+          alias: '{{ !empty($page->seo->alias) ? $page->seo->alias : $page->alias }}',
           status: {{ !empty(@$page->seo->status) ? 'true' : 'false' }}
         }
       }

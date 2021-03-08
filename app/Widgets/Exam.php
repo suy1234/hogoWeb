@@ -25,7 +25,11 @@ class Exam extends AbstractWidget
     {
         $config = $this->config['data'];
         if($this->config['is_value']){
-            $questions = Question::with('answers', 'group_type')->where('group_type_id', $config['value'])->select('title', 'content', 'img', 'category_id', 'group_id', 'group_type_id', 'id')->get();
+            $questions = Question::with('answers', 'group_type')
+            ->where('category_id', $config['category_id'])
+            ->where('group_type_id', $config['exam_id'])
+            ->select('title', 'content', 'img', 'category_id', 'group_id', 'group_type_id', 'id')
+            ->get();
             return $questions->toArray();
         }
         $menus = MenuEntity::where('menu_id', $config['config'][1]['value'])->get(['title', 'url', 'icon']);

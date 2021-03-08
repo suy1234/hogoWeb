@@ -63,7 +63,7 @@ $title = trans(\Route::getCurrentRoute()->action['module'].'::'.$resource.'.modu
             </div>
             <div class="card-body" id="url-data">
                 <div>
-                    <a href="">{{ url('/') }}/@{{ form.alias }}</a>
+                    <a :href="'{{ url('/') }}/'+form.alias" target="_blank">{{ url('/') }}/@{{ form.alias }}</a>
                 </div>
                 <div id="show-edit-url" style="display: none;">
                     <div class="form-group">

@@ -205,7 +205,8 @@ return [
         'description'           => 'Nhập mô tả',
         'back'                  => 'Trở lại',
         'reset'                 => 'Mặt định',
-        'build'                 => 'Build theme'
+        'build'                 => 'Build theme',
+        'save_theme'            => 'Luu theme'
     ],
 
 ];

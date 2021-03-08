@@ -73,4 +73,12 @@ class LayoutController extends Controller
     {
         return response()->json(['success' => true, 'data' => Layout::where('parent_id', $request->id)->get()]);
     }
+
+    public function saveLayout(Request $request)
+    {
+        $data = $request->only('type', 'page_id', 'parent_id', 'class', 'widget_id','widget', 'widget_type', 'has_database');
+        $data['has_database'] = (!empty($data['has_database']) && $data['has_database'] === 'true') ? 1 : 0;
+        return response()->json(['success' => true, 'data' => Layout::create($data)]);
+    }
+
 }

@@ -11,16 +11,19 @@ class Breadcrumb extends AbstractWidget
      *
      * @var array
      */
-    protected $config = [
-        'data' => [],
-        'data_view' => [],
-        'blade' => '1',
-    ];
+    protected $config = [];
 
     public function run()
     {   
+        if($this->config['is_value']){
+            return [
+                'breadcrumb' => $this->getUrlFull($this->config['entity']),
+                'img' => $this->config['entity']->img,
+                'gallerys' => $this->config['entity']->gallerys,
+            ];
+        }
         return view('widgets.breadcrumb.'.$this->config['blade'], [
-            'links' => $this->getUrlFull($this->config['data_view'])
+            'links' => $this->getUrlFull(1)
         ]);
     }
 
@@ -34,18 +37,26 @@ class Breadcrumb extends AbstractWidget
             ],
         ];
         if(!empty($data->category)){
+            if(!empty($data->category->parent)){
+                $param[] = [
+                    'title' => $data->category->parent->title,
+                    'link' => url('/').'/'.$data->category->parent->alias,
+                    'icon' => ''
+                ];
+            }
             $param[] = [
                 'title' => $data->category->title,
                 'link' => url('/').'/'.$data->category->alias,
                 'icon' => ''
             ];
         }
-
-        $param[] = [
-            'title' => $data->title,
-            'link' => url('/').'/'.$data->alias,
-            'icon' => ''
+        return [
+            'list' => $param,
+            'this_breadcrumb' => [
+                'title' => $data->title,
+                'link' => url('/').'/'.$data->alias,
+                'icon' => ''
+            ]
         ];
-        return $param;
     }
 }

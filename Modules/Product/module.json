@@ -7,5 +7,8 @@
     "order": 100,
     "providers": [
         "Modules\\Product\\Providers\\ProductServiceProvider"
+    ],
+    "files": [
+        "helpers.php"
     ]
 }

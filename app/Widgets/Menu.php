@@ -25,7 +25,7 @@ class Menu extends AbstractWidget
     {
         $config = $this->config['data'];
         if($this->config['is_value']){
-            return MenuEntity::where('menu_id', $config['value'])->get(['title', 'url', 'icon'])->toArray();
+            return MenuEntity::where('parent_id', 0)->where('menu_id', $config['value'])->orderBy('order')->select('title', 'url', 'icon', 'id')->get()->toArray();
         }
         $menus = MenuEntity::where('menu_id', $config['config'][1]['value'])->get(['title', 'url', 'icon']);
         return view('widgets.menu.'.$this->config['folder'].'.'.$this->config['blade'], [

@@ -69,6 +69,14 @@ class Post extends AppModel
                 ->orWhere('content', 'like', '%'.$keyword.'%');
             });
         }
+        
+        if(!empty($category_id = intval(array_get(request()->all(), 'category_id')))){
+            $query = $query->where('category_id', $category_id);
+        }
+
+        if(!empty($group_id = intval(array_get(request()->all(), 'group_id')))){
+            $query = $query->where('group_ids', 'like', '%"'.$group_id.'"%');
+        }
         return $query;
     }
 

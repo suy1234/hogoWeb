@@ -16,7 +16,7 @@
 				</strong>
 			</div>
 			<div class="card-body">
-				@foreach(config('widgets.website.rows') as $key => $rows)
+				{{-- @foreach(config('widgets.website.rows') as $key => $rows)
 					<div class="widget-rows">
 						<a v-on:click="addWidget('{{ $key }}')" class="btn btn-icon bg-transparent btn-success widget-btn border-slate-300 text-slate rounded-round border-dashed"><i class="icon-plus22"></i></a>
 						<div class="widget row" data-id="1">
@@ -29,7 +29,7 @@
 							@endforeach
 						</div>
 					</div>
-				@endforeach
+				@endforeach --}}
 			</div>
 		</div>
 	</div>
@@ -47,6 +47,10 @@
 						<i class="icon-design"></i>  
 						{{ trans('validation.attributes.build') }}
 					</button>
+					<button v-on:click="showWidgetForm({{ $page->id }})" class="btn btn-info btn-sm">
+						<i class="icon-plus22"></i>  
+						{{ trans('validation.attributes.save_theme') }}
+					</button>
 					<button v-on:click="update('{{ route('admin.pages.design_store', ['id' =>  $page->id]) }}')" class="btn btn-success btn-sm">
 						<i class="icon-floppy-disk"></i>  
 						{{ trans('validation.attributes.save') }}
@@ -54,8 +58,18 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<div class="widget row">
-					<div v-for="(item, key) in data" :data-id="item.id" :class="item.class" class="widget-item text-center mb-3">
+				<div class="widget">
+					<div v-for="(item, key) in data" :data-id="item.id" class="widget-item text-center mb-3">
+						<div class="widget-content font-12px p-2 pl-0 pr-0 position-relative">
+							<span class="badge badge-flat border-primary text-primary-600">
+								@{{ item.widget }} 
+								<a v-on:click="removeWidget(item.id, index)" href="javascript:void(0)" class="text-danger">
+									<i class="icon-bin"></i>
+								</a>
+							</span>
+						</div>
+					</div>
+					{{-- <div v-for="(item, key) in data" :data-id="item.id" :class="item.class" class="widget-item text-center mb-3">
 						<div class="widget-content font-12px p-2 pl-0 pr-0 position-relative">
 							<a v-on:click="showWidgetForm(item.id)" href="javascript:void(0)" class="btn btn-icon bg-transparent btn-success widget-btn border-slate-300 text-slate rounded-round border-dashed position-absolute" style="top: 0;right: 0;z-index: 9;">
 								<i class="icon-plus22"></i>
@@ -72,7 +86,7 @@
 								</li>
 							</ul>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>
@@ -99,13 +113,21 @@
 					<label for="widget_type">{{ trans('website::pages.widgets.widget_type') }}<code>*</code></label> 
 					<input type="text" id="widget_type" v-model="widgets.widget_type" required="required" value="" class="form-control ">
 				</div>
+				<div class="form-group mb-0">
+                    <div class="checkbox checkbox-custom">
+                        <input id="status" type="checkbox" name="has_database" v-model="widgets.has_database">
+                        <label for="status">
+                            {{ trans('website::pages.widgets.has_database') }}
+                        </label>
+                    </div>
+                </div> 
 			</div>
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-link btn-sm" data-dismiss="modal">
 					{{ trans('validation.attributes.back') }}
 				</button>
-				<button type="button" class="btn btn-success btn-sm" v-on:click="saveWidgetParent">
+				<button type="button" class="btn btn-success btn-sm" v-on:click="saveLayout">
 					{{ trans('validation.attributes.save') }}
 				</button>
 			</div>
@@ -127,10 +149,11 @@
 			},
 			data: [],
 			widgets: {
-				parent_id: '',
+				page_id: '',
 				widget_id: '',
 				widget: 'widget_theme',
 				widget_type: '',
+				has_database: false
 			}
 		},
 		methods: {
@@ -143,8 +166,8 @@
 					data: {ids: id, _token: $('meta[name=csrf-token]').attr('content')},                        
 				}).done( function(res , status , xhr){
 					vm.isLoading = false;
+					this.listWidget({{ request()->id }});
 					if(res.success){
-						this.listWidget({{ request()->id }});
 						helper.showNotification("{{ trans('validation.attributes.success') }}", 'success', 1000);
 						return true;
 					}else{
@@ -158,19 +181,21 @@
 			},
 			showWidgetForm: function (id) {
 				$('#modal-widget').modal('show');
-				this.widgets.parent_id = id;
+				this.widgets.page_id = id;
 			},
-			saveWidgetParent: function () {
+			saveLayout: function () {
 				var vm = this;
 				vm.isLoading = true;
 				vm.widgets._token = $('meta[name=csrf-token]').attr('content');
 				$.ajax({
 					type: "POST",
-					url: '{{ route("admin.layouts.store") }}',
+					url: '{{ route("admin.layouts.save_layout_theme") }}',
 					data: vm.widgets,                        
 				}).done( function(res , status , xhr){
 					vm.isLoading = false;
 					if(res.success){
+						this.listWidget({{ request()->id }});
+						$('#modal-widget').modal('hide');
 						helper.showNotification("{{ trans('validation.attributes.success') }}", 'success', 1000);
 						return true;
 					}else{

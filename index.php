@@ -8,7 +8,7 @@
 
 define('LARAVEL_START', microtime(true));
 
-$database = ($_SERVER['SERVER_NAME'] != 'code.local') ? $_SERVER['SERVER_NAME'] : 'code_dev';
+$database = ($_SERVER['SERVER_NAME'] != 'code.local') ? $_SERVER['SERVER_NAME'] : 'code';
 define('DB_DATABASE', str_replace('.', '_', $database));
 
 /*

@@ -61,6 +61,10 @@
 					</div>
 				</div>
 				<div class="text-right">
+					<button v-on:click="showWidgetForm({{ $layout->id }})" class="btn btn-info btn-sm">
+						<i class="icon-plus22"></i>  
+						{{ trans('validation.attributes.save_theme') }}
+					</button>
 					<button v-on:click="update('{{ route('admin.layouts.update', ['id' =>  $layout->id]) }}')" class="btn btn-success btn-sm">
 						<i class="icon-floppy-disk"></i>  
 						{{ trans('validation.attributes.save') }}
@@ -71,6 +75,14 @@
 				<div class="widget row">
 					<div v-for="(item, key) in data" :data-id="item.id" :class="item.class" class="widget-item text-center mb-3">
 						<div class="widget-content font-12px p-2 pl-0 pr-0 position-relative">
+							<span class="badge badge-flat border-primary text-primary-600">
+								@{{ item.widget }} 
+								<a v-on:click="removeWidget(item.id, index)" href="javascript:void(0)" class="text-danger">
+									<i class="icon-bin"></i>
+								</a>
+							</span>
+						</div>
+						{{-- <div class="widget-content font-12px p-2 pl-0 pr-0 position-relative">
 							<a v-on:click="showWidgetForm(item.id)" href="javascript:void(0)" class="btn btn-icon bg-transparent btn-success widget-btn border-slate-300 text-slate rounded-round border-dashed position-absolute" style="top: 0;right: 0;z-index: 9;">
 								<i class="icon-plus22"></i>
 							</a>
@@ -85,7 +97,7 @@
 									</span>
 								</li>
 							</ul>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>
@@ -119,6 +131,15 @@
 					<label for="widget_type">{{ trans('website::pages.widgets.widget_type') }}<code>*</code></label> 
 					<input type="text" id="widget_type" v-model="widgets.widget_type" required="required" value="" class="form-control ">
 				</div>
+				<div class="form-group mb-0">
+                    <div class="checkbox checkbox-custom">
+                        <input id="status" type="checkbox" name="has_database" v-model="widgets.has_database">
+                        <label for="status">
+                            {{ trans('website::pages.widgets.has_database') }}
+                        </label>
+                    </div>
+                </div> 
+				
 			</div>
 
 			<div class="modal-footer">
@@ -151,6 +172,7 @@
 				widget_id: '',
 				widget: 'widget_theme',
 				widget_type: '',
+				has_database: false
 			}
 		},
 		methods: {
@@ -169,6 +191,8 @@
 				}).done( function(res , status , xhr){
 					vm.isLoading = false;
 					if(res.success){
+						this.listWidget({{ request()->id }});
+						$('#modal-widget').modal('hide');
 						helper.showNotification("{{ trans('validation.attributes.success') }}", 'success', 1000);
 						return true;
 					}else{

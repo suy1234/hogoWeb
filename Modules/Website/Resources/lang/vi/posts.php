@@ -23,4 +23,8 @@ return [
 		1 => 'Bật',
 		-1 => 'Tắt'
 	],
+	'filters' => [
+		'category' => 'Danh mục bài viết',
+		'group' => 'Nhóm bài viết',
+	]
 ];

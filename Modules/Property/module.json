@@ -1,0 +1,14 @@
+{
+    "name": "property",
+    "alias": "Property",
+    "description": "The Property module is responsible for managing Propertys and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Property\\Providers\\PropertyServiceProvider"
+    ],
+    "files": [
+        "helpers.php"
+    ]
+}

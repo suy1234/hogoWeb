@@ -25,9 +25,12 @@ class WebsiteController extends Controller
         if(empty($theme)){
         	echo 'Website đang trong quá trình xây dựng liên hệ 0931 15 68 18 để biết thêm chi tiết';die();
         }
+        $this->default = [
+            'theme' => $theme,
+        ];
         $config = Setting::where('type', 'activation_date')->first();
         $folder = $config->config['folder'].'/'.$theme->id;
-        \View::share('layout_default', Layout::with('widgets')->whereNotNull('type')->get()->keyBy('type')->toArray());
+        \View::share('layout_default', Layout::with('widgets')->where('theme_id', $theme->id)->whereNotNull('type')->get()->keyBy('type')->toArray());
         \View::share('path', compact('folder'));
     }
 }

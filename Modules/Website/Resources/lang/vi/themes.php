@@ -25,6 +25,12 @@ return [
 			'price_color' => 'Màu giá',
 			'price_sale_color' => 'Màu giá khuyến mãi',
 		],
+		'sidebar' => [
+			'title' => 'Màu đương viền',
+			'border_color' => 'Màu đường viền chính',
+			'border_sub_color' => 'Màu đường viền phụ',
+			'border_sub2_color' => 'Màu đường viền phụ 2',
+		],
 		'layout' => 'Kiểu Layout',
 		'layout_box' => 'Khối nội dung'
 	],

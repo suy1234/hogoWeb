@@ -13,24 +13,17 @@ class Tab extends AppModel
 	protected $table = 'tabs';
 	protected $fillable = array(
         "title",
+        "type",
         "order",
-        "alias",
-        "published_at",
         "status",
         "created_by",
-        "updated_at",
         "created_at"           
     );
 	
     protected static function boot() {
         parent::boot();
-        static::creating(function (self $category) {
-            $category->created_by = auth()->user()->id;
-        });
-        static::saved(function (self $category) {
-        });
-        static::addGlobalScope('active', function (Builder $builder) {
-            $builder->where('status', 1);
+        static::creating(function (self $tab) {
+            $tab->created_by = auth()->user()->id;
         });
     }
 }

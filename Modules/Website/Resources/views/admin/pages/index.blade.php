@@ -16,6 +16,7 @@
 		@slot('thead', [
 			trans('website::pages.table.img'),
 			'',
+			'',
 			trans('website::pages.table.title'),
 			trans('website::pages.table.builder'),
 			trans('website::layouts.form.design'),
@@ -28,8 +29,16 @@
 				</template>
 			</td>
 			<td>
+				<template v-if="item.type == 'homepage'">
+					<i class="icon-home2 icon-1x text-success"></i>
+				</template>
+			</td>
+			<td>
 				<template v-if="item.page_default == 1">
 					<i class="icon-home2 icon-1x text-success"></i>
+				</template>
+				<template v-else>
+					<i v-on:click="sendUrl(item.option.url_default)" class="icon-home2 icon-1x text-warning" style="cursor: pointer;"></i>
 				</template>
 			</td>			
 			<td class="v-html">@{{ item.title }}</td>

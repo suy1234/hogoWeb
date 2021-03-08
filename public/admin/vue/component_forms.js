@@ -242,6 +242,30 @@ Vue.component('form_image', {
     },
     created: function () {        },
 });
+Vue.component('form_breadcrumb', {
+    template: `
+    <div class="form-group">
+    <label v-html="label+':'"></label> 
+    <select v-model="val" class="form-control ">
+        <option value="default">Mặc định</option>
+    </select>
+    </div>`,
+    props: ['label', 'value'],
+    data: function () {
+        return {
+            val: this.value
+        }
+    },
+    methods: {
+
+    },
+    watch: {
+        val: function (val) {
+            this.$emit('input', val);
+        },
+    },
+    created: function () {        },
+});
 Vue.component('form_title', {
     template: `
     <div class="form-group">
@@ -306,7 +330,7 @@ Vue.component('form_code_js', {
             editor.setTheme("ace/theme/monokai");
             editor.getSession().setMode("ace/mode/javascript");
             editor.setShowPrintMargin(false);
-            editor.on('keypress', function () {
+            editor.on('change', function () {
                 console.log(editor.getValue());
                 vm.$emit('input', editor.getValue())
             })

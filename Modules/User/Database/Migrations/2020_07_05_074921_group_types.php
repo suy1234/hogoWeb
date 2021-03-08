@@ -16,8 +16,8 @@ class GroupTypes extends Migration
         DB::unprepared("
             CREATE TABLE `group_types` (
             `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `title` varchar(200) NOT NULL,
-            `description` varchar(255) DEFAULT NULL,
+            `title` varchar(255) NOT NULL,
+            `description` varchar(512) DEFAULT NULL,
             `content` text COLLATE utf8mb4_unicode_ci,
             `img` varchar(255) DEFAULT NULL,
             `alias` varchar(255) DEFAULT NULL,
