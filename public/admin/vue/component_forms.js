@@ -825,3 +825,34 @@ Vue.component('form_banner', {
     },
     created: function () {        },
 });
+Vue.component('form_link', {
+    template: `<div>
+        <div class="form-group select-link">
+            <label class="control-label">
+                {{ label }}
+            </label>
+            <div class="form-group">
+                <input type="text" class="form-control form-control-sm" v-model="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <input type="link" class="form-control form-control-sm" v-model="link" placeholder="Link">
+            </div>
+        </div>
+    </div>`,
+    props: ['label', 'value'],
+    data: function () {
+        return {
+            title : '',
+            link : '',
+        }
+    },
+    methods: {
+        onChange() {
+            this.$emit('onblurevent');
+        },
+    },
+    watch: {
+
+    },
+    created: function () {        },
+});

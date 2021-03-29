@@ -58,10 +58,6 @@ class Category extends AppModel
         return $this->hasMany($this, 'parent_id', 'id');
     }
 
-    public function seo()
-    {
-        return $this->hasOne('Modules\Core\Entities\Seo', 'taxonomy_id', 'id')->where('type', $this->getTable())->withDefault();
-    }
     public function tableQuestion($request)
     {
         $numRow = !empty($request->numRow) ? $request->numRow : 10;

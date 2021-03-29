@@ -44,10 +44,10 @@
 		<link rel="stylesheet" type="text/css" href="/public/web/aos/aos.css" media="all">
 	@endif
 	<link rel="stylesheet" type="text/css" href="/public/web/alocool/alocool.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/kh/992020/vendor/slick/slick.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/public/web/slick/slick.css" media="all">
 	<link rel="stylesheet" type="text/css" href="/public/web/bootstrap/bootstrap.min.css" media="all">
-	<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/default.css') }}?v={{ rand() }}" media="all">
-	<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/style.css') }}?v={{ rand() }}" media="all">
+	<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/default.css') }}" media="all">
+	<link rel="stylesheet" type="text/css" href="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/css/style.css') }}" media="all">
 	<style type="text/css">
 		@-webkit-keyframes xoayvong{
 			from{
@@ -221,15 +221,15 @@
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 		});
-		$("#bacgrp-mobile").click(function(event) {
-			$('.menu_mobile').removeClass('open_sidebar_menu');
-			$("#bacgrp-mobile").css('display', 'none');
-		});
-		$(".menu-bar-h a").click(function(event) {
-			event.preventDefault();
-			$('.menu_mobile').addClass('open_sidebar_menu');
-			$("#bacgrp-mobile").css('display', 'block');
-		});
+		// $("#bacgrp-mobile").click(function(event) {
+		// 	$('.menu_mobile').removeClass('open_sidebar_menu');
+		// 	$("#bacgrp-mobile").css('display', 'none');
+		// });
+		// $(".menu-bar-h a").click(function(event) {
+		// 	event.preventDefault();
+		// 	$('.menu_mobile').addClass('open_sidebar_menu');
+		// 	$("#bacgrp-mobile").css('display', 'block');
+		// });
 		$(window).scroll(function() {
 			if($(this).scrollTop() > 100) {
 				$("#back-top").fadeIn();
@@ -256,7 +256,7 @@
 		}
 		$('.page-loading').css('display', 'none');
 	</script>
-	<script type="text/javascript" src="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/js/script.js') }}?v={{ rand() }}"></script>
+	<script type="text/javascript" src="{{ asset( '/public/kh/'.(!empty($path['folder']) ? $path['folder'] : '992020').'/js/script.js') }}"></script>
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];

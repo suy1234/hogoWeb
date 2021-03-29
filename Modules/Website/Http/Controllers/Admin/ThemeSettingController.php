@@ -101,6 +101,13 @@ class ThemeSettingController extends Controller
             ".$sidebar."
             ".$color_website."
         }
+        .row{
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+        }
         *{
           margin:0;
           padding: 0;

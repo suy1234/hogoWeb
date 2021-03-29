@@ -49,19 +49,4 @@ class PostController extends Controller
         ];
     }
 
-    public function destroy(Request $request)
-    {
-        $ids = !empty($request->ids) ? explode(',', $request->ids) : [];
-        \DB::beginTransaction();
-        $result = $this->getModel()
-        ->withoutGlobalScope('active')
-        ->whereIn('id', $ids)
-        ->delete();
-        Seo::whereIn('taxonomy_id', $ids)->where('type', $this->getModel()->getTable())->delete();
-        postAnswer::whereIn('post_id', $ids)->delete();
-        \DB::commit();
-        return response()->json([
-            'success' => $result
-        ]);
-    }
 }

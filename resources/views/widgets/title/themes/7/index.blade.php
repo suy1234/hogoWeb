@@ -82,7 +82,7 @@
 </header>
 
 <!-- Menu mobile -->
-<div class="menu_mobile sidenav max_991 hidden-lg" id="mySidenav">
+<div class="menu_mobile sidenav max_991 hidden-lg" id="nav-mobile">
 	<ul class="ul_collections">
 		<li class="special">
 			<a href="/" title="menu">MENU</a>

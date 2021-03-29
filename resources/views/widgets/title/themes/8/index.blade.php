@@ -1,4 +1,4 @@
-@if(count($data))
+@if(!empty($data[0]))
 <div class="breadcrumb_background" style="background-image:url({{ !empty($data[0]['gallerys']) ? $data[0]['gallerys'][0] : '' }})">
 	<div class="title_full">
 		<div class="container a-center">

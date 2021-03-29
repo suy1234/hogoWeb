@@ -1,0 +1,14 @@
+{
+    "name": "RealEstate",
+    "alias": "real_estate",
+    "description": "The RealEstate module is responsible for managing RealEstates and permissions.",
+    "version": "1.0.0",
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\RealEstate\\Providers\\RealEstateServiceProvider"
+    ],
+    "files": [
+        "helpers.php"
+    ]
+}

@@ -54,7 +54,7 @@ class Post extends AppModel
             }
         });
     }
-
+    
     public function category() {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
